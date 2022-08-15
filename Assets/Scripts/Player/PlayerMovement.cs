@@ -76,7 +76,8 @@ public class PlayerMovement : MonoBehaviour
         gunShotSound.Play();
         GameObject muzzleFlashInstance = Instantiate(muzzleFlash, bulletSpawnPoint.position, muzzleFlash.transform.rotation);
         Destroy(muzzleFlashInstance, 0.2f);
-        Instantiate(bullet, bulletSpawnPoint.position, bullet.transform.rotation);
+        GameObject firedBullet = Instantiate(bullet, bulletSpawnPoint.position, bullet.transform.rotation);
+        firedBullet.transform.parent = gameObject.transform;
     }
 
     void OnCrouch(InputValue value)
