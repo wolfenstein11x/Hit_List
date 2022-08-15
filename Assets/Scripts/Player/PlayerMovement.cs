@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rigidBody;
     Vector2 sizeScale;
     Animator animator;
-    CapsuleCollider2D playerCollider;
+    CapsuleCollider2D bodyCollider;
     float startingGravityScale;
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         sizeScale = new Vector2(transform.localScale.x, transform.localScale.y);
         animator = GetComponent<Animator>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        bodyCollider = GetComponent<CapsuleCollider2D>();
         startingGravityScale = rigidBody.gravityScale;
     }
 
@@ -42,7 +42,14 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        // can't jump while crouched
+        if (animator.GetBool("crouching")) { return; }
+
+        bool onGround = bodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        //bool onLadder = playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
+
+        // can only jump from off ground 
+        if (!onGround) { return; }
 
         if (value.isPressed)
         { 
@@ -51,8 +58,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnCrouch(InputValue value)
+    {
+        // can't crouch if on ladder
+        bool onLadder = bodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
+        if (onLadder) { return; }
+
+        animator.SetBool("crouching", true);
+    }
+
+    void OnUncrouch(InputValue value)
+    {
+        animator.SetBool("crouching", false);
+    }
+
     void Run()
     {
+        // can't run while crouched
+        if (animator.GetBool("crouching")) { return; }
+
         Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, rigidBody.velocity.y);
         rigidBody.velocity = playerVelocity;
 
@@ -78,8 +102,11 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
+        // can't climb while crouched
+        if (animator.GetBool("crouching")) { return; }
+
         // only climb if player is touching a ladder
-        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
+        if (!bodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
         {
             rigidBody.gravityScale = startingGravityScale;
             animator.SetBool("climbing", false);
