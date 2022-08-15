@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float climbSpeed = 5f;
     [SerializeField] float flipCorrection = 1f;
 
     Vector2 moveInput;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 sizeScale;
     Animator animator;
     CapsuleCollider2D playerCollider;
+    float startingGravityScale;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         sizeScale = new Vector2(transform.localScale.x, transform.localScale.y);
         animator = GetComponent<Animator>();
         playerCollider = GetComponent<CapsuleCollider2D>();
+        startingGravityScale = rigidBody.gravityScale;
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Run();
         FlipSprite();
+        ClimbLadder();
     }
 
     void OnMove(InputValue value)
@@ -70,5 +74,27 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x) * sizeScale.x, 1f * sizeScale.y);
         }
 
+    }
+
+    void ClimbLadder()
+    {
+        // only climb if player is touching a ladder
+        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
+        {
+            rigidBody.gravityScale = startingGravityScale;
+            animator.SetBool("climbing", false);
+            animator.SetBool("climbing_idle", false);
+            return; 
+        }
+
+        // handle upward motion
+        Vector2 climbVelocity = new Vector2(rigidBody.velocity.x, moveInput.y * climbSpeed);
+        rigidBody.velocity = climbVelocity;
+        rigidBody.gravityScale = 0f;
+
+        // play climbing animation if moving up, play climbing idle animation if not moving
+        bool playerHasVerticalalSpeed = Mathf.Abs(rigidBody.velocity.y) > Mathf.Epsilon;
+        animator.SetBool("climbing", playerHasVerticalalSpeed);
+        animator.SetBool("climbing_idle", !playerHasVerticalalSpeed);
     }
 }
