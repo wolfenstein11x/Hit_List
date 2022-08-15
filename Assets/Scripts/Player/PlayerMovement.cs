@@ -9,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] float flipCorrection = 1f;
+    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject muzzleFlash;
+    [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] Transform standingBulletSpawnPoint;
+    [SerializeField] Transform crouchedBulletSpawnPoint;
 
     Vector2 moveInput;
     Rigidbody2D rigidBody;
@@ -16,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     CapsuleCollider2D bodyCollider;
     float startingGravityScale;
+    AudioSource gunShotSound;
+    bool isShooting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         bodyCollider = GetComponent<CapsuleCollider2D>();
         startingGravityScale = rigidBody.gravityScale;
+        gunShotSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +66,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnFire(InputValue value)
+    {
+        animator.SetTrigger("shoot");
+    }
+
+    public void FireRound()
+    {
+        gunShotSound.Play();
+        GameObject muzzleFlashInstance = Instantiate(muzzleFlash, bulletSpawnPoint.position, muzzleFlash.transform.rotation);
+        Destroy(muzzleFlashInstance, 0.2f);
+        Instantiate(bullet, bulletSpawnPoint.position, bullet.transform.rotation);
+    }
+
     void OnCrouch(InputValue value)
     {
         // can't crouch if on ladder
@@ -65,15 +86,25 @@ public class PlayerMovement : MonoBehaviour
         if (onLadder) { return; }
 
         animator.SetBool("crouching", true);
-    }
+        animator.SetBool("running", false);
+
+        // adjust firing point
+        bulletSpawnPoint = crouchedBulletSpawnPoint;
+    }  
 
     void OnUncrouch(InputValue value)
     {
         animator.SetBool("crouching", false);
+
+        // reset firing point
+        bulletSpawnPoint = standingBulletSpawnPoint;
     }
 
     void Run()
     {
+        // can't run while shooting
+        if (isShooting) { return; }
+
         // can't run while crouched
         if (animator.GetBool("crouching")) { return; }
 
@@ -96,6 +127,10 @@ public class PlayerMovement : MonoBehaviour
 
             // flip sprite
             transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x) * sizeScale.x, 1f * sizeScale.y);
+
+            // also have to flip muzzle flash
+            muzzleFlash.transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x), 1f);
+
         }
 
     }
@@ -124,4 +159,11 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("climbing", playerHasVerticalalSpeed);
         animator.SetBool("climbing_idle", !playerHasVerticalalSpeed);
     }
+
+    public void SetIsShooting(bool status)
+    {
+        isShooting = status;
+    }
+
+    
 }
