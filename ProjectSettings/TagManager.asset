@@ -15,9 +15,9 @@ TagManager:
   - Climbing
   - WallBuffer
   - Bullets
-  - 
-  - 
-  - 
+  - Player
+  - Background
+  - BulletCatcher
   - 
   - 
   - 

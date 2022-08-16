@@ -12,9 +12,11 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        // TODO fix problem with bullet changing direction midair
         bulletOrientation = GetComponentInParent<OrientationTracker>().GetOrientation();
         rigidBody = GetComponent<Rigidbody2D>();
+
+        // de-child bullet from shooter so it does not move with shooter
+        transform.parent = null;
     }
 
     void Update()
