@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] Transform standingBulletSpawnPoint;
     [SerializeField] Transform crouchedBulletSpawnPoint;
+    [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
 
     Vector2 moveInput;
     Rigidbody2D rigidBody;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     float startingGravityScale;
     AudioSource gunShotSound;
     bool isShooting = false;
+    bool isAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive) { return; }
+
         Run();
         FlipSprite();
         ClimbLadder();
@@ -45,11 +49,15 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        if (!isAlive) { return; }
+
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
+        if (!isAlive) { return; }
+
         // can't jump while crouched
         if (animator.GetBool("crouching")) { return; }
 
@@ -161,10 +169,25 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("climbing_idle", !playerHasVerticalalSpeed);
     }
 
+    public void Die()
+    {
+        isAlive = false;
+        animator.SetTrigger("die");
+        rigidBody.velocity = deathKick;
+    }
+
     public void SetIsShooting(bool status)
     {
         isShooting = status;
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
+        {
+            Die();
+        }
+    }
+
+
 }
