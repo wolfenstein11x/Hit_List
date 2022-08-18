@@ -174,6 +174,8 @@ public class PlayerMovement : MonoBehaviour
         isAlive = false;
         animator.SetTrigger("die");
         rigidBody.velocity = deathKick;
+
+        FindObjectOfType<LivesHandler>().LoseAllLives();
     }
 
     public void SetIsShooting(bool status)
