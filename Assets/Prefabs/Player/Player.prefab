@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 366654101}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,8 +300,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.8004698, y: 0.05440092}
-  m_Size: {x: 1.9632157, y: 4.8607845}
+  m_Offset: {x: -0.8004698, y: 0.0051169395}
+  m_Size: {x: 1.9632157, y: 4.9593525}
   m_Direction: 0
 --- !u!114 &4633137362835754696
 MonoBehaviour:
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e36ebb021907448bae0a2f007f950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 5
+  runSpeed: 8
   jumpSpeed: 23
   climbSpeed: 5
   flipCorrection: 0.02
@@ -354,6 +354,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1997291167}
   standingBulletSpawnPoint: {fileID: 594140311}
   crouchedBulletSpawnPoint: {fileID: 376992121}
+  deathKick: {x: -5, y: 20}
 --- !u!82 &366654100
 AudioSource:
   m_ObjectHideFlags: 0
