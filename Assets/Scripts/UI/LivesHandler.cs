@@ -7,30 +7,33 @@ public class LivesHandler : MonoBehaviour
 {
     [SerializeField] GameObject lifeIcon;
     [SerializeField] int startingLives;
-    [SerializeField] int maxLives;
-    [SerializeField] float lostLifeAlpha = 60f;
     [SerializeField] float spacing = 20;
     [SerializeField] float lifeAnimationTime = 1.4f;
 
     List<GameObject> currentLives = new List<GameObject>();
+    int totalLives = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         InitializeLives();
+        totalLives = startingLives;
+        LoseLife();
     }
 
     private void InitializeLives()
     {
         for (int i=0; i < startingLives; i++)
         {
-            Vector3 lifePos = new Vector3(transform.position.x + spacing * i, transform.position.y, transform.position.z);
-            AddLife(lifePos);
+            AddLife();
         }
     }
 
-    private void AddLife(Vector3 pos)
+    public void AddLife()
     {
+        float xPos = transform.position.x + currentLives.Count * spacing;
+        Vector3 pos = new Vector3(xPos, transform.position.y, transform.position.z);
+
         GameObject life = Instantiate(lifeIcon, pos, transform.rotation);
         
         // make sprite child of canvas, or won't be seen
@@ -39,7 +42,7 @@ public class LivesHandler : MonoBehaviour
         // fix scale of sprite due to issue with parent/child/world scaling
         life.transform.localScale = new Vector3(1f, 1f, 1f);
 
-        // track life in list 
+        // track life in list
         currentLives.Add(life);
     }
 
@@ -63,5 +66,29 @@ public class LivesHandler : MonoBehaviour
         }
 
         currentLives.Clear();
+    }
+
+    public void RestoreLife()
+    {
+        // if all lives are full, do nothing
+        if (currentLives.Count == totalLives) { return; }
+
+        AddLife();
+    }
+
+    public void RestoreAllLives()
+    {
+        int livesToAdd = totalLives - currentLives.Count;
+        for (int i=0; i < livesToAdd; i++)
+        {
+            RestoreLife();
+        }
+    }
+
+    public void AddExtraLife()
+    {
+        RestoreAllLives();
+        AddLife();
+        totalLives++;
     }
 }
