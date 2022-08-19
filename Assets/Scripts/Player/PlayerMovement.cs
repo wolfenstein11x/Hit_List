@@ -109,6 +109,11 @@ public class PlayerMovement : MonoBehaviour
         bulletSpawnPoint = standingBulletSpawnPoint;
     }
 
+    void OnThrow(InputValue value)
+    {
+        animator.SetTrigger("throw");
+    }
+
     void Run()
     {
         // can't run while shooting
