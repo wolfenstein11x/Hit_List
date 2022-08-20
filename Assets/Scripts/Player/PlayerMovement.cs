@@ -120,6 +120,8 @@ public class PlayerMovement : MonoBehaviour
 
     void OnThrow(InputValue value)
     {
+        if (!gameSession.HasGrenade()) { return; }
+
         animator.SetTrigger("throw");
     }
 
@@ -127,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GameObject liveGrenade = Instantiate(grenade, grenadeSpawnPoint.position, grenade.transform.rotation);
         liveGrenade.transform.parent = gameObject.transform;
+        gameSession.LoseGrenade();
     }
 
     void Run()

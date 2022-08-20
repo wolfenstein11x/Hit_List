@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] GameObject[] grenades;
     [SerializeField] int startingLives = 3;
     [SerializeField] int startingGrenades = 1;
-    [SerializeField] float loseLifeAnimationTime = 1f;
+
     int lifePointer;
     int grenadePointer;
     int maxLives;
@@ -108,6 +109,30 @@ public class GameSession : MonoBehaviour
             life.GetComponent<Animator>().ResetTrigger("activate");
             life.GetComponent<Animator>().SetTrigger("deactivate");
         }
+    }
+
+    public void AddGrenade()
+    {
+        // do nothing if grenade slots are full
+        if (grenadePointer >= grenades.Length - 1) { return; }
+        
+        grenadePointer++;
+        grenades[grenadePointer].GetComponent<Image>().enabled = true;
+
+    }
+
+    public void LoseGrenade()
+    {
+        // do nothing if grenade slots are empty
+        if (grenadePointer < 0) { return; }
+
+        grenades[grenadePointer].GetComponent<Image>().enabled = false;
+        grenadePointer--;
+    }
+
+    public bool HasGrenade()
+    {
+        return grenadePointer >= 0;
     }
 
     

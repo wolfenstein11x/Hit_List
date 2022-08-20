@@ -13,7 +13,7 @@ public class Grenade : MonoBehaviour
     [SerializeField] float explosionOffsetX = 0.42f;
     [SerializeField] float explosionOffsetY = 2.04f;
 
-    Rigidbody2D rigidbody;
+    Rigidbody2D grenadeRigidbody;
     float orientation;
     AudioSource explosionSound;
 
@@ -21,8 +21,8 @@ public class Grenade : MonoBehaviour
     void Start()
     {
         orientation = GetComponentInParent<OrientationTracker>().GetOrientation();
-        rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.velocity = new Vector2(velocityX * orientation, velocityY);
+        grenadeRigidbody = GetComponent<Rigidbody2D>();
+        grenadeRigidbody.velocity = new Vector2(velocityX * orientation, velocityY);
         explosionSound = GetComponent<AudioSource>();
 
         // de-child grenade from thrower so it does not move with thrower
