@@ -17,6 +17,9 @@ public class GrenadePickup : MonoBehaviour
             // can't get grenade if dead
             if (!collision.gameObject.GetComponent<PlayerMovement>().IsAlive()) { return; }
 
+            // can't get grenade if grenade slots full
+            if (gameSession.GrenadesMaxed()) { return; }
+
             // add grenade and play sound effect
             gameSession.AddGrenade();
             GetComponent<AudioSource>().Play();

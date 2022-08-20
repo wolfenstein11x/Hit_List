@@ -58,7 +58,7 @@ public class GameSession : MonoBehaviour
         {
             if (i > grenadePointer)
             {
-                grenades[i].SetActive(false);
+                grenades[i].GetComponentInChildren<Image>().enabled = false;
             }
         }
     }
@@ -133,6 +133,11 @@ public class GameSession : MonoBehaviour
     public bool HasGrenade()
     {
         return grenadePointer >= 0;
+    }
+
+    public bool GrenadesMaxed()
+    {
+        return grenadePointer >= grenades.Length - 1;
     }
 
     
