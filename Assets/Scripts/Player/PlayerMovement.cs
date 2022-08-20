@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] Transform standingBulletSpawnPoint;
     [SerializeField] Transform crouchedBulletSpawnPoint;
+    [SerializeField] GameObject grenade;
+    [SerializeField] Transform standingGrenadeSpawnPoint;
+    [SerializeField] Transform crouchedGrenadeSpawnPoint;
     [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
 
     Vector2 moveInput;
@@ -25,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     AudioSource gunShotSound;
     bool isShooting = false;
     bool isAlive = true;
+    Transform grenadeSpawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         bodyCollider = GetComponent<CapsuleCollider2D>();
         startingGravityScale = rigidBody.gravityScale;
         gunShotSound = GetComponent<AudioSource>();
+        grenadeSpawnPoint = standingGrenadeSpawnPoint;
     }
 
     // Update is called once per frame
@@ -97,21 +102,29 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("crouching", true);
         animator.SetBool("running", false);
 
-        // adjust firing point
+        // adjust firing point and throw point
         bulletSpawnPoint = crouchedBulletSpawnPoint;
+        grenadeSpawnPoint = crouchedGrenadeSpawnPoint;
     }  
 
     void OnUncrouch(InputValue value)
     {
         animator.SetBool("crouching", false);
 
-        // reset firing point
+        // reset firing point and throw point
         bulletSpawnPoint = standingBulletSpawnPoint;
+        grenadeSpawnPoint = standingGrenadeSpawnPoint;
     }
 
     void OnThrow(InputValue value)
     {
         animator.SetTrigger("throw");
+    }
+
+    public void ThrowGrenade()
+    {
+        GameObject liveGrenade = Instantiate(grenade, grenadeSpawnPoint.position, grenade.transform.rotation);
+        liveGrenade.transform.parent = gameObject.transform;
     }
 
     void Run()

@@ -62,6 +62,9 @@ TagManager:
   - name: Platforms
     uniqueID: 2457532531
     locked: 0
+  - name: Projectile
+    uniqueID: 2954964985
+    locked: 0
   - name: Player
     uniqueID: 756327597
     locked: 0
