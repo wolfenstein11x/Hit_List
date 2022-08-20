@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class HealthPotion : MonoBehaviour
 {
+    GameSession gameSession;
+    private void Start()
+    {
+        gameSession = FindObjectOfType<GameSession>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            // can't get potion if dead
+            if (!collision.gameObject.GetComponent<PlayerMovement>().IsAlive()) { return; }
+
             // restore health and play sound effect
-            FindObjectOfType<LivesHandler>().RestoreLife();
+            gameSession.RestoreLife();
             GetComponent<AudioSource>().Play();
 
             // make potion disappear

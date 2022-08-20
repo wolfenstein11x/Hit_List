@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class SuperHealthPotion : MonoBehaviour
 {
-    LivesHandler livesHandler;
+    GameSession gameSession;
 
     private void Start()
     {
-        livesHandler = FindObjectOfType<LivesHandler>();
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            // can't get potion if dead
+            if (!collision.gameObject.GetComponent<PlayerMovement>().IsAlive()) { return; }
+
             // restore health and play sound effect
-            livesHandler.AddExtraLife();
+            gameSession.AddLife();
             GetComponent<AudioSource>().Play();
 
             // make potion disappear

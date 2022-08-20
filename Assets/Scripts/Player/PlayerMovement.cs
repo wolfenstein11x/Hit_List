@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     bool isShooting = false;
     bool isAlive = true;
     Transform grenadeSpawnPoint;
+    GameSession gameSession;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         startingGravityScale = rigidBody.gravityScale;
         gunShotSound = GetComponent<AudioSource>();
         grenadeSpawnPoint = standingGrenadeSpawnPoint;
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     // Update is called once per frame
@@ -193,7 +195,17 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("die");
         rigidBody.velocity = deathKick;
 
-        FindObjectOfType<LivesHandler>().LoseAllLives();
+        gameSession.LoseAllLives();
+    }
+
+    public void TakeHit()
+    {
+        gameSession.LoseLife();
+    }
+
+    public bool IsAlive()
+    {
+        return isAlive;
     }
 
     public void SetIsShooting(bool status)
