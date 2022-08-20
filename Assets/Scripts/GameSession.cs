@@ -42,9 +42,9 @@ public class GameSession : MonoBehaviour
 
         for (int i=0; i < lives.Length; i++)
         {
-            if (i > lifePointer)
+            if (i <= lifePointer)
             {
-                lives[i].GetComponent<Animator>().SetTrigger("deactivated");
+                lives[i].GetComponent<Animator>().SetTrigger("activate");
             }
         }
     }
@@ -67,7 +67,7 @@ public class GameSession : MonoBehaviour
         if (lifePointer == maxLives - 1) { return; }
 
         lifePointer++;
-        lives[lifePointer].GetComponent<Animator>().SetTrigger("lifeRestored");
+        lives[lifePointer].GetComponent<Animator>().SetTrigger("activate");
     }
 
     public void RestoreAllLives()
@@ -76,7 +76,7 @@ public class GameSession : MonoBehaviour
 
         for (int i=0; i < maxLives; i++)
         {
-            lives[i].GetComponent<Animator>().SetTrigger("lifeRestored");
+            lives[i].GetComponent<Animator>().SetTrigger("activate");
         }
 
         lifePointer = maxLives - 1;
@@ -90,14 +90,14 @@ public class GameSession : MonoBehaviour
 
         maxLives++;
         lifePointer = maxLives - 1;
-        lives[lifePointer].GetComponent<Animator>().SetTrigger("lifeRestored");
+        lives[lifePointer].GetComponent<Animator>().SetTrigger("activate");
     }
 
     public void LoseLife()
     {
         if (lifePointer == 0) { return; }
 
-        lives[lifePointer].GetComponent<Animator>().SetTrigger("lifeLost");
+        lives[lifePointer].GetComponent<Animator>().SetTrigger("deactivate");
         lifePointer--;
     }
 
@@ -105,7 +105,8 @@ public class GameSession : MonoBehaviour
     {
         foreach(GameObject life in lives)
         {
-            life.GetComponent<Animator>().SetTrigger("lifeLost");
+            life.GetComponent<Animator>().ResetTrigger("activate");
+            life.GetComponent<Animator>().SetTrigger("deactivate");
         }
     }
 
