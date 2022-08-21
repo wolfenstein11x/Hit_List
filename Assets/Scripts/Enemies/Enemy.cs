@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     protected bool isDead = false;
 
+    private float flipCorrection = 0.02f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +22,33 @@ public class Enemy : MonoBehaviour
 
     public virtual void TakeHit()
     {
+        if (isDead) { return; }
+    }
 
+    public virtual void Walk(Rigidbody2D body, float walkSpeed)
+    {
+        Vector2 walkVelocity = new Vector2(walkSpeed, body.velocity.y);
+        body.velocity = walkVelocity;
+    }
+
+    public virtual void ReverseDirection()
+    {
+        
     }
 
     public virtual float GetRange()
     {
         return 0;
+    }
+
+    public virtual float GetWalkSpeed()
+    {
+        return 0;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 
     public void ShootRaycasts(float range)
@@ -50,5 +73,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void FlipSprite(Rigidbody2D body)
+    {
+        float xScale = body.transform.localScale.x;
+        float yScale = body.transform.localScale.y;
 
+        // correct for the sprite flip point not being at its center
+        float xPosCorrected = body.transform.position.x + (flipCorrection * Mathf.Sign(body.velocity.x));
+        body.transform.position = new Vector2(xPosCorrected, transform.position.y);
+        
+        // flip sprite
+        body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
+        
+        //Debug.Log("sign: " + Mathf.Sign(body.velocity.x));
+        //Debug.Log("x scale: " + body.transform.localScale.x);
+        //Debug.Log("new x scale: " + (Mathf.Sign(body.velocity.x) * body.transform.localScale.x));
+        
+        // also have to flip muzzle flash
+        //muzzleFlash.transform.localScale = new Vector2(Mathf.Sign(body.velocity.x), 1f);
+    }
 }
