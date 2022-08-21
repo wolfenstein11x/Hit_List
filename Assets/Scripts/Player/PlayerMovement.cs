@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     AudioSource gunShotSound;
     bool isShooting = false;
     bool isAlive = true;
+    bool takingHit = false;
     Transform grenadeSpawnPoint;
     GameSession gameSession;
 
@@ -140,6 +141,9 @@ public class PlayerMovement : MonoBehaviour
         // can't run while crouched
         if (animator.GetBool("crouching")) { return; }
 
+        // can't run while getting blasted up into the air
+        if (takingHit) { return; }
+
         Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, rigidBody.velocity.y);
         rigidBody.velocity = playerVelocity;
 
@@ -215,6 +219,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetIsShooting(bool status)
     {
         isShooting = status;
+    }
+
+    public void SetTakingHit(bool status)
+    {
+        takingHit = status;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
