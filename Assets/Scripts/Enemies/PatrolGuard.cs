@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PatrolGuard : Enemy
 {
+    public float fireRange = 100f;
+
     Animator animator;
     CapsuleCollider2D bodyCollider;
 
@@ -17,7 +19,7 @@ public class PatrolGuard : Enemy
     // Update is called once per frame
     void Update()
     {
-     
+        
     }
 
     public override void TakeHit()
@@ -25,6 +27,11 @@ public class PatrolGuard : Enemy
         base.TakeHit();
         animator.SetTrigger("takeHit");
         isDead = true;
+    }
+
+    public override float GetRange()
+    {
+        return fireRange;
     }
 
 }
