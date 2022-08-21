@@ -26,6 +26,8 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
+
         // TODO get symmetrical, small simple explosion for bullet
         //GameObject bulletExplosion = Instantiate(explosion, transform.position, transform.rotation);
         //Destroy(bulletExplosion, 0.2f);
