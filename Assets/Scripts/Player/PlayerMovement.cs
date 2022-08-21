@@ -119,6 +119,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipSprite()
     {
+        if (takingHit) { return; }
+
         bool playerHasHorizontalSpeed = Mathf.Abs(rigidBody.velocity.x ) > Mathf.Epsilon;
 
         if (playerHasHorizontalSpeed)
@@ -199,6 +201,7 @@ public class PlayerMovement : MonoBehaviour
         else if (collision.gameObject.tag == "Bullet")
         {
             TakeHit();
+            rigidBody.velocity = deathKick;
         }
     }
 

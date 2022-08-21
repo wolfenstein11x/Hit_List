@@ -18,6 +18,7 @@ public class PatrolGuard : Enemy
     void Start()
     {
         animator = GetComponent<Animator>();
+        MuzzleFlashAnimator = muzzleFlash.GetComponent<Animator>();
         bodyCollider = GetComponent<CapsuleCollider2D>();
         body = GetComponent<Rigidbody2D>();
 

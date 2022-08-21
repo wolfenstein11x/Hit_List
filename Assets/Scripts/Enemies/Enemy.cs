@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     protected Transform BulletSpawnPoint;
     protected GameObject Bullet;
     protected GameObject MuzzleFlash;
+    protected Animator MuzzleFlashAnimator;
     protected AudioSource GunShotSound;
     protected Transform gunmanTransform;
 
@@ -89,16 +90,13 @@ public class Enemy : MonoBehaviour
         
         // flip sprite
         body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
-
-        // also have to flip muzzle flash
-        MuzzleFlash.transform.localScale = new Vector2(Mathf.Sign(body.velocity.x), 1f);
     }
 
+    
     public void FireRound()
     {
         GunShotSound.Play();
-        GameObject muzzleFlashInstance = Instantiate(MuzzleFlash, BulletSpawnPoint.position, MuzzleFlash.transform.rotation);
-        Destroy(muzzleFlashInstance, 0.2f);
+        MuzzleFlashAnimator.SetTrigger("flash");
         GameObject firedBullet = Instantiate(Bullet, BulletSpawnPoint.position, Bullet.transform.rotation);
         firedBullet.transform.parent = gunmanTransform;
     }

@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.tag == "WallBuffer") { return; }
 
         // TODO get symmetrical, small simple explosion for bullet
         //GameObject bulletExplosion = Instantiate(explosion, transform.position, transform.rotation);
