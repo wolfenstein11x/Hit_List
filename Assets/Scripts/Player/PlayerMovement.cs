@@ -12,11 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject muzzleFlash;
     [SerializeField] Transform bulletSpawnPoint;
-    [SerializeField] Transform standingBulletSpawnPoint;
-    [SerializeField] Transform crouchedBulletSpawnPoint;
     [SerializeField] GameObject grenade;
-    [SerializeField] Transform standingGrenadeSpawnPoint;
-    [SerializeField] Transform crouchedGrenadeSpawnPoint;
+    [SerializeField] Transform grenadeSpawnPoint;
     [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
 
     Vector2 moveInput;
@@ -29,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     bool isShooting = false;
     bool isAlive = true;
     bool takingHit = false;
-    Transform grenadeSpawnPoint;
     GameSession gameSession;
 
     // Start is called before the first frame update
@@ -41,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         bodyCollider = GetComponent<CapsuleCollider2D>();
         startingGravityScale = rigidBody.gravityScale;
         gunShotSound = GetComponent<AudioSource>();
-        grenadeSpawnPoint = standingGrenadeSpawnPoint;
         gameSession = FindObjectOfType<GameSession>();
     }
 
@@ -65,9 +60,6 @@ public class PlayerMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         if (!isAlive) { return; }
-
-        // can't jump while crouched
-        if (animator.GetBool("crouching")) { return; }
 
         bool onGround = bodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
         //bool onLadder = playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
@@ -96,29 +88,6 @@ public class PlayerMovement : MonoBehaviour
         firedBullet.transform.parent = gameObject.transform;
     }
 
-    void OnCrouch(InputValue value)
-    {
-        // can't crouch if on ladder
-        bool onLadder = bodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
-        if (onLadder) { return; }
-
-        animator.SetBool("crouching", true);
-        animator.SetBool("running", false);
-
-        // adjust firing point and throw point
-        bulletSpawnPoint = crouchedBulletSpawnPoint;
-        grenadeSpawnPoint = crouchedGrenadeSpawnPoint;
-    }  
-
-    void OnUncrouch(InputValue value)
-    {
-        animator.SetBool("crouching", false);
-
-        // reset firing point and throw point
-        bulletSpawnPoint = standingBulletSpawnPoint;
-        grenadeSpawnPoint = standingGrenadeSpawnPoint;
-    }
-
     void OnThrow(InputValue value)
     {
         if (!gameSession.HasGrenade()) { return; }
@@ -137,9 +106,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // can't run while shooting
         if (isShooting) { return; }
-
-        // can't run while crouched
-        if (animator.GetBool("crouching")) { return; }
 
         // can't run while getting blasted up into the air
         if (takingHit) { return; }
@@ -173,9 +139,6 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-        // can't climb while crouched
-        if (animator.GetBool("crouching")) { return; }
-
         // only climb if player is touching a ladder
         if (!bodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
         {
