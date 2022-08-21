@@ -203,6 +203,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeHit()
     {
+        animator.SetTrigger("hit");
         gameSession.LoseLife();
     }
 

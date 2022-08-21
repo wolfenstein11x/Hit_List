@@ -24,6 +24,7 @@ public class PatrolGuard : Enemy
     {
         base.TakeHit();
         animator.SetTrigger("takeHit");
+        isDead = true;
     }
 
 }

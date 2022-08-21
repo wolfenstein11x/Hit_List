@@ -12,6 +12,7 @@ public class Grenade : MonoBehaviour
     [SerializeField] GameObject explosion;
     [SerializeField] float explosionOffsetX = 0.42f;
     [SerializeField] float explosionOffsetY = 2.04f;
+    [SerializeField] float explosionRadius = 5f;
 
     Rigidbody2D grenadeRigidbody;
     float orientation;
@@ -49,11 +50,36 @@ public class Grenade : MonoBehaviour
         explosionSound.Play();
         Vector3 explosionPoint = new Vector3(transform.position.x + explosionOffsetX, transform.position.y + explosionOffsetY, transform.position.z);
         GameObject grenadeExplosion = Instantiate(explosion, explosionPoint, explosion.transform.rotation);
+
+        // impact force on any player or enemy within radius
+        ExplosionForce();
         
         // remove grenade and explosion
         Destroy(grenadeExplosion, explosionDuration);
         Destroy(gameObject, explosionDuration);
 
     }
+
+    private void ExplosionForce()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+
+        foreach (Collider2D collider in colliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            PlayerMovement player = collider.GetComponent<PlayerMovement>();
+
+            if (enemy != null)
+            {
+                enemy.TakeHit();
+            }
+
+            if (player != null)
+            {
+                player.TakeHit();
+            }
+        }
+    }
+
 
 }
