@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rigidBody;
     Vector2 sizeScale;
     Animator animator;
+    Animator muzzleFlashAnimator;
     CapsuleCollider2D bodyCollider;
     float startingGravityScale;
     AudioSource gunShotSound;
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         sizeScale = new Vector2(transform.localScale.x, transform.localScale.y);
         animator = GetComponent<Animator>();
+        muzzleFlashAnimator = muzzleFlash.GetComponent<Animator>();
         bodyCollider = GetComponent<CapsuleCollider2D>();
         startingGravityScale = rigidBody.gravityScale;
         gunShotSound = GetComponent<AudioSource>();
@@ -82,8 +84,7 @@ public class PlayerMovement : MonoBehaviour
     public void FireRound()
     {
         gunShotSound.Play();
-        GameObject muzzleFlashInstance = Instantiate(muzzleFlash, bulletSpawnPoint.position, muzzleFlash.transform.rotation);
-        Destroy(muzzleFlashInstance, 0.2f);
+        muzzleFlashAnimator.SetTrigger("flash");
         GameObject firedBullet = Instantiate(bullet, bulletSpawnPoint.position, bullet.transform.rotation);
         firedBullet.transform.parent = gameObject.transform;
     }
@@ -131,10 +132,6 @@ public class PlayerMovement : MonoBehaviour
 
             // flip sprite
             transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x) * sizeScale.x, 1f * sizeScale.y);
-
-            // also have to flip muzzle flash
-            muzzleFlash.transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x), 1f);
-
         }
 
     }

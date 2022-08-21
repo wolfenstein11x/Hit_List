@@ -10601,10 +10601,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1333885015, guid: 938470840e2f52a4a8d890d153312365, type: 3}
-      propertyPath: m_TagString
-      value: WallBuffer
-      objectReference: {fileID: 0}
     - target: {fileID: 3161950841096061472, guid: 938470840e2f52a4a8d890d153312365, type: 3}
       propertyPath: m_Name
       value: Player
