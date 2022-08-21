@@ -13,6 +13,8 @@ public class Grenade : MonoBehaviour
     [SerializeField] float explosionOffsetX = 0.42f;
     [SerializeField] float explosionOffsetY = 2.04f;
     [SerializeField] float explosionRadius = 5f;
+    [SerializeField] float explosionForceX = 5f;
+    [SerializeField] float explosionForceY = 20f;
 
     Rigidbody2D grenadeRigidbody;
     float orientation;
@@ -52,7 +54,7 @@ public class Grenade : MonoBehaviour
         GameObject grenadeExplosion = Instantiate(explosion, explosionPoint, explosion.transform.rotation);
 
         // impact force on any player or enemy within radius
-        ExplosionForce();
+        InitiateExplosionForce();
         
         // remove grenade and explosion
         Destroy(grenadeExplosion, explosionDuration);
@@ -60,7 +62,7 @@ public class Grenade : MonoBehaviour
 
     }
 
-    private void ExplosionForce()
+    private void InitiateExplosionForce()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
 
@@ -72,13 +74,23 @@ public class Grenade : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeHit();
+                AddExplosionForce(enemy.GetComponent<Rigidbody2D>());
             }
 
             if (player != null)
             {
                 player.TakeHit();
+                AddExplosionForce(player.GetComponent<Rigidbody2D>());
             }
         }
+    }
+
+    private void AddExplosionForce(Rigidbody2D body)
+    {
+        float xDir = body.transform.position.x - transform.position.x < 0 ? -1.0f : 1.0f;
+        Vector2 explosionKick = new Vector2(explosionForceX * xDir, explosionForceY);
+
+        body.velocity = explosionKick;
     }
 
 
