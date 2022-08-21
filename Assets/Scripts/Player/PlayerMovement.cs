@@ -195,6 +195,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Die();
         }
+
+        else if (collision.gameObject.tag == "Bullet")
+        {
+            TakeHit();
+        }
     }
 
 

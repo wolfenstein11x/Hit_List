@@ -6,6 +6,9 @@ public class PatrolGuard : Enemy
 {
     [SerializeField] float walkSpeed = 4f;
     [SerializeField] float fireRange = 100f;
+    [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject muzzleFlash;
 
     Animator animator;
     CapsuleCollider2D bodyCollider;
@@ -17,6 +20,12 @@ public class PatrolGuard : Enemy
         animator = GetComponent<Animator>();
         bodyCollider = GetComponent<CapsuleCollider2D>();
         body = GetComponent<Rigidbody2D>();
+
+        BulletSpawnPoint = bulletSpawnPoint;
+        Bullet = bullet;
+        MuzzleFlash = muzzleFlash;
+        GunShotSound = GetComponent<AudioSource>();
+        gunmanTransform = gameObject.transform;
     }
 
     public override void TakeHit()

@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Bullet
   - TurnaroundPoint
+  - WallBuffer
   layers:
   - Default
   - TransparentFX

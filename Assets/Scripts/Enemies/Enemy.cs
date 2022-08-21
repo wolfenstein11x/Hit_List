@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    protected bool isDead = false;
+    protected Transform BulletSpawnPoint;
+    protected GameObject Bullet;
+    protected GameObject MuzzleFlash;
+    protected AudioSource GunShotSound;
+    protected Transform gunmanTransform;
 
+    protected bool isDead = false;
     private float flipCorrection = 0.02f;
 
     // Start is called before the first frame update
@@ -84,12 +89,17 @@ public class Enemy : MonoBehaviour
         
         // flip sprite
         body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
-        
-        //Debug.Log("sign: " + Mathf.Sign(body.velocity.x));
-        //Debug.Log("x scale: " + body.transform.localScale.x);
-        //Debug.Log("new x scale: " + (Mathf.Sign(body.velocity.x) * body.transform.localScale.x));
-        
+
         // also have to flip muzzle flash
-        //muzzleFlash.transform.localScale = new Vector2(Mathf.Sign(body.velocity.x), 1f);
+        MuzzleFlash.transform.localScale = new Vector2(Mathf.Sign(body.velocity.x), 1f);
+    }
+
+    public void FireRound()
+    {
+        GunShotSound.Play();
+        GameObject muzzleFlashInstance = Instantiate(MuzzleFlash, BulletSpawnPoint.position, MuzzleFlash.transform.rotation);
+        Destroy(muzzleFlashInstance, 0.2f);
+        GameObject firedBullet = Instantiate(Bullet, BulletSpawnPoint.position, Bullet.transform.rotation);
+        firedBullet.transform.parent = gunmanTransform;
     }
 }
