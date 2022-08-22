@@ -9,15 +9,21 @@ public class Enemy : MonoBehaviour
     protected GameObject MuzzleFlash;
     protected Animator MuzzleFlashAnimator;
     protected AudioSource GunShotSound;
+    protected float FireRange;
+    
+    protected OrientationTracker orientationTracker;
     protected Transform gunmanTransform;
 
     protected bool isDead = false;
-    private float flipCorrection = 0.02f;
+    protected LayerMask raycastLayers;
 
+    private float flipCorrection = 0.02f;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -57,11 +63,23 @@ public class Enemy : MonoBehaviour
         return isDead;
     }
 
-    public void ShootRaycasts(float range)
+    public bool TargetInSights()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * range);
-        Ray ray = new Ray(transform.position, Vector2.right);
-        Debug.DrawRay(ray.origin, ray.direction * range, Color.blue);
+        float orientation = orientationTracker.GetOrientation();
+        
+        RaycastHit2D hit = Physics2D.Raycast(gunmanTransform.position, Vector2.right * new Vector2(orientation, 0f), FireRange, raycastLayers);
+        
+        if (hit.collider.gameObject.tag == "Player")
+        {
+            return true;
+            //Debug.DrawRay(gunmanTransform.position, Vector2.right * hit.distance * new Vector2(orientation, 0f), Color.red);
+        }
+        else
+        {
+            return false;
+            //Debug.DrawRay(gunmanTransform.position, Vector2.right * hit.distance * new Vector2(orientation, 0f), Color.green);
+        }
+
     }
 
     public void RemoveFromPlay()

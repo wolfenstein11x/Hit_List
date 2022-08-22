@@ -373,10 +373,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 2
-  fireRange: 100
+  fireRange: 25
   bulletSpawnPoint: {fileID: 188481559}
   bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
   muzzleFlash: {fileID: 7024581433949319630}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1001 &5371343638169948309
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,7 +22,10 @@ public class WalkStateEnemy : StateMachineBehaviour
     {
         walkSpeed = enemy.GetWalkSpeed();
         enemy.Walk(body, walkSpeed);
-        //enemy.ShootRaycasts(range);
+        if (enemy.TargetInSights())
+        {
+            animator.SetBool("targetAcquired", true);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

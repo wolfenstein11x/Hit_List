@@ -26,7 +26,12 @@ public class PatrolGuard : Enemy
         Bullet = bullet;
         MuzzleFlash = muzzleFlash;
         GunShotSound = GetComponent<AudioSource>();
+        FireRange = fireRange;
+
         gunmanTransform = gameObject.transform;
+        orientationTracker = GetComponent<OrientationTracker>();
+        raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
+
     }
 
     public override void TakeHit()
