@@ -196,6 +196,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverPopup
       objectReference: {fileID: 0}
+    - target: {fileID: 3101730672636963260, guid: 3dfac8e80d9adb448bc9f5a94eafe802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101730672636963260, guid: 3dfac8e80d9adb448bc9f5a94eafe802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101730672636963260, guid: 3dfac8e80d9adb448bc9f5a94eafe802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6393693894325621145, guid: 861909a14faef8a419dfe11fe8a68cd1, type: 3}
+    - target: {fileID: 3101730672636963260, guid: 3dfac8e80d9adb448bc9f5a94eafe802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101730672636963260, guid: 3dfac8e80d9adb448bc9f5a94eafe802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101730672636963260, guid: 3dfac8e80d9adb448bc9f5a94eafe802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101730672636963260, guid: 3dfac8e80d9adb448bc9f5a94eafe802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dfac8e80d9adb448bc9f5a94eafe802, type: 3}
 --- !u!224 &6570009925160021617 stripped
