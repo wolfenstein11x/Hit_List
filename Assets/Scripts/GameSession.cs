@@ -14,6 +14,8 @@ public class GameSession : MonoBehaviour
     int grenadePointer;
     int maxLives;
 
+    PlayerMovement player;
+
     private void Awake()
     {
         // make singleton
@@ -35,6 +37,7 @@ public class GameSession : MonoBehaviour
         InitializeLives();
         InitializeGrenades();
         maxLives = startingLives;
+        player = FindObjectOfType<PlayerMovement>();
     }
 
     private void InitializeLives()
@@ -96,7 +99,12 @@ public class GameSession : MonoBehaviour
 
     public void LoseLife()
     {
-        if (lifePointer == 0) { return; }
+        if (lifePointer < 0) { return; }
+
+        if (lifePointer == 0) 
+        {
+            player.Die();
+        }
 
         lives[lifePointer].GetComponent<Animator>().SetTrigger("deactivate");
         lifePointer--;

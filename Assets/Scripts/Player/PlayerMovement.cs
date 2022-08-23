@@ -169,8 +169,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeHit()
     {
-        animator.SetTrigger("hit");
+        if (!isAlive) { return; }
         gameSession.LoseLife();
+        if (!isAlive) { return; }
+
+        animator.SetTrigger("hit");
     }
 
     public bool IsAlive()

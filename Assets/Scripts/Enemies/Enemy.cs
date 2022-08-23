@@ -118,4 +118,9 @@ public class Enemy : MonoBehaviour
         GameObject firedBullet = Instantiate(Bullet, BulletSpawnPoint.position, Bullet.transform.rotation);
         firedBullet.transform.parent = gunmanTransform;
     }
+
+    public bool TargetDead()
+    {
+        return !FindObjectOfType<PlayerMovement>().IsAlive();
+    }
 }
