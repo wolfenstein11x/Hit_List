@@ -165,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody.velocity = deathKick;
 
         gameSession.LoseAllLives();
+        FindObjectOfType<PopupManager>().GameOver(true);
     }
 
     public void TakeHit()
