@@ -13,12 +13,6 @@ public class LevelLoader : MonoBehaviour
         activeSceneIdx = SceneManager.GetActiveScene().buildIndex;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ReloadLevel()
     {
         SceneManager.LoadScene(activeSceneIdx);

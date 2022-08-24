@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameSession : MonoBehaviour
     int lifePointer;
     int grenadePointer;
     int maxLives;
+    int activeSceneIdx;
 
     PlayerMovement player;
 
@@ -34,13 +36,14 @@ public class GameSession : MonoBehaviour
 
     private void Start()
     {
-        InitializeLives();
+        //InitializeLives();
         InitializeGrenades();
         maxLives = startingLives;
         player = FindObjectOfType<PlayerMovement>();
+        activeSceneIdx = SceneManager.GetActiveScene().buildIndex;
     }
 
-    private void InitializeLives()
+    public void InitializeLives()
     {
         lifePointer = startingLives - 1;
 
@@ -53,7 +56,7 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    private void InitializeGrenades()
+    public void InitializeGrenades()
     {
         grenadePointer = startingGrenades - 1;
 
@@ -99,6 +102,7 @@ public class GameSession : MonoBehaviour
 
     public void LoseLife()
     {
+        Debug.Log(lifePointer);
         if (lifePointer < 0) { return; }
 
         if (lifePointer == 0) 
@@ -148,6 +152,11 @@ public class GameSession : MonoBehaviour
         return grenadePointer >= grenades.Length - 1;
     }
 
-    
-    
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(activeSceneIdx);
+        InitializeLives();
+        InitializeGrenades();
+    }
+
 }

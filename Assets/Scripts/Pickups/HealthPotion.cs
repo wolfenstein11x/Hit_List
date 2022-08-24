@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HealthPotion : MonoBehaviour
 {
-    GameSession gameSession;
+    LivesTracker livesTracker;
     private void Start()
     {
-        gameSession = FindObjectOfType<GameSession>();
+        livesTracker = FindObjectOfType<LivesTracker>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,7 +18,7 @@ public class HealthPotion : MonoBehaviour
             if (!collision.gameObject.GetComponent<PlayerMovement>().IsAlive()) { return; }
 
             // restore health and play sound effect
-            gameSession.RestoreLife();
+            livesTracker.RestoreLife();
             GetComponent<AudioSource>().Play();
 
             // make potion disappear

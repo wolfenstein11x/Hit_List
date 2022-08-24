@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GrenadePickup : MonoBehaviour
 {
-    GameSession gameSession;
+    GrenadesTracker grenadesTracker;
     private void Start()
     {
-        gameSession = FindObjectOfType<GameSession>();
+        grenadesTracker = FindObjectOfType<GrenadesTracker>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,10 +18,10 @@ public class GrenadePickup : MonoBehaviour
             if (!collision.gameObject.GetComponent<PlayerMovement>().IsAlive()) { return; }
 
             // can't get grenade if grenade slots full
-            if (gameSession.GrenadesMaxed()) { return; }
+            if (grenadesTracker.GrenadesMaxed()) { return; }
 
             // add grenade and play sound effect
-            gameSession.AddGrenade();
+            grenadesTracker.AddGrenade();
             GetComponent<AudioSource>().Play();
 
             // make grenade disappear

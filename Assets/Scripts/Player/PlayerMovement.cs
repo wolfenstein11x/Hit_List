@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
     bool isShooting = false;
     bool isAlive = true;
     bool takingHit = false;
-    GameSession gameSession;
+    GrenadesTracker grenadesTracker;
+    LivesTracker livesTracker;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,8 @@ public class PlayerMovement : MonoBehaviour
         bodyCollider = GetComponent<CapsuleCollider2D>();
         startingGravityScale = rigidBody.gravityScale;
         gunShotSound = GetComponent<AudioSource>();
-        gameSession = FindObjectOfType<GameSession>();
+        grenadesTracker = FindObjectOfType<GrenadesTracker>();
+        livesTracker = FindObjectOfType<LivesTracker>();
     }
 
     // Update is called once per frame
@@ -91,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnThrow(InputValue value)
     {
-        if (!gameSession.HasGrenade()) { return; }
+        if (!grenadesTracker.HasGrenade()) { return; }
 
         animator.SetTrigger("throw");
     }
@@ -100,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GameObject liveGrenade = Instantiate(grenade, grenadeSpawnPoint.position, grenade.transform.rotation);
         liveGrenade.transform.parent = gameObject.transform;
-        gameSession.LoseGrenade();
+        grenadesTracker.LoseGrenade();
     }
 
     void Run()
@@ -164,14 +166,13 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("die");
         rigidBody.velocity = deathKick;
 
-        gameSession.LoseAllLives();
         FindObjectOfType<PopupManager>().GameOver(true);
     }
 
     public void TakeHit()
     {
         if (!isAlive) { return; }
-        gameSession.LoseLife();
+        livesTracker.LoseLife();
         if (!isAlive) { return; }
 
         animator.SetTrigger("hit");
@@ -196,6 +197,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
         {
+            livesTracker.LoseAllLives();
             Die();
         }
 
