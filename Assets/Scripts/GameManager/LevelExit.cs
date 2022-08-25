@@ -6,6 +6,6 @@ public class LevelExit : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<LevelLoader>().LoadNextLevel();
+        FindObjectOfType<PopupManager>().LevelComplete(true);
     }
 }

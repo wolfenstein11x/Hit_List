@@ -79,3 +79,6 @@ TagManager:
   - name: Enemy
     uniqueID: 3921173483
     locked: 0
+  - name: HouseCover
+    uniqueID: 2973952919
+    locked: 0

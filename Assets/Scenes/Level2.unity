@@ -5124,6 +5124,10 @@ PrefabInstance:
       propertyPath: gameOverPopup
       value: 
       objectReference: {fileID: 810006311}
+    - target: {fileID: 314151655808947758, guid: 3ed32a32d7b27124ea49e1df782997a3, type: 3}
+      propertyPath: levelCompletePopup
+      value: 
+      objectReference: {fileID: 6570009924887353690}
     - target: {fileID: 314151655808947759, guid: 3ed32a32d7b27124ea49e1df782997a3, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5854,6 +5858,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e85c2b9a00d578c4ebbe7a2e5b0c0a18, type: 3}
+--- !u!1 &6570009924887353690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8081378213954936097, guid: e85c2b9a00d578c4ebbe7a2e5b0c0a18, type: 3}
+  m_PrefabInstance: {fileID: 6570009924887353689}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7055732531551685299
 PrefabInstance:
   m_ObjectHideFlags: 0

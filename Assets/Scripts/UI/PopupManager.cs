@@ -5,11 +5,13 @@ using UnityEngine;
 public class PopupManager : MonoBehaviour
 {
     [SerializeField] GameObject gameOverPopup;
-
+    [SerializeField] GameObject levelCompletePopup;
+ 
     // Start is called before the first frame update
     void Start()
     {
         GameOver(false);
+        LevelComplete(false);
     }
 
     // Update is called once per frame
@@ -21,5 +23,10 @@ public class PopupManager : MonoBehaviour
     public void GameOver(bool isOn)
     {
         gameOverPopup.SetActive(isOn);
+    }
+
+    public void LevelComplete(bool isOn)
+    {
+        levelCompletePopup.SetActive(isOn);
     }
 }
