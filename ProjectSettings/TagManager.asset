@@ -25,7 +25,7 @@ TagManager:
   - BulletCatcher
   - Hazards
   - Enemy
-  - 
+  - House
   - 
   - 
   - 
@@ -66,6 +66,9 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 2457532531
+    locked: 0
+  - name: House
+    uniqueID: 3656666985
     locked: 0
   - name: Projectile
     uniqueID: 2954964985

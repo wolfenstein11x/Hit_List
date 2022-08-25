@@ -21,6 +21,6 @@ public class WallBuffer : MonoBehaviour
         if (collision.gameObject.tag != "TurnaroundPoint") { return; }
 
         enemy.ReverseDirection();
-        enemy.FlipSprite(body);
+        enemy.FlipSprite();
     }
 }

@@ -10,7 +10,8 @@ public class Enemy : MonoBehaviour
     protected Animator MuzzleFlashAnimator;
     protected AudioSource GunShotSound;
     protected float FireRange;
-    
+    public Rigidbody2D Body;
+
     protected OrientationTracker orientationTracker;
     protected Transform gunmanTransform;
 
@@ -69,6 +70,8 @@ public class Enemy : MonoBehaviour
         
         RaycastHit2D hit = Physics2D.Raycast(gunmanTransform.position, Vector2.right * new Vector2(orientation, 0f), FireRange, raycastLayers);
         
+        if (!hit) { return false; }
+
         if (hit.collider.gameObject.tag == "Player")
         {
             return true;
@@ -97,17 +100,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void FlipSprite(Rigidbody2D body)
+    public void FlipSprite()
     {
-        float xScale = body.transform.localScale.x;
-        float yScale = body.transform.localScale.y;
+        float xScale = Body.transform.localScale.x;
+        float yScale = Body.transform.localScale.y;
 
         // correct for the sprite flip point not being at its center
-        float xPosCorrected = body.transform.position.x + (flipCorrection * Mathf.Sign(body.velocity.x));
-        body.transform.position = new Vector2(xPosCorrected, transform.position.y);
+        float xPosCorrected = Body.transform.position.x + (flipCorrection * Mathf.Sign(Body.velocity.x));
+        Body.transform.position = new Vector2(xPosCorrected, transform.position.y);
         
         // flip sprite
-        body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
+        Body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
     }
 
     

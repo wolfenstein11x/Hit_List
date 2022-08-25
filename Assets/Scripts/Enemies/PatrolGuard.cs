@@ -27,6 +27,7 @@ public class PatrolGuard : Enemy
         MuzzleFlash = muzzleFlash;
         GunShotSound = GetComponent<AudioSource>();
         FireRange = fireRange;
+        Body = body;
 
         gunmanTransform = gameObject.transform;
         orientationTracker = GetComponent<OrientationTracker>();
