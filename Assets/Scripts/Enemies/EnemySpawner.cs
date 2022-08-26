@@ -16,6 +16,13 @@ public class EnemySpawner : MonoBehaviour
             Enemy enemy = Instantiate(enemies[i], spawnPoints[i].position, transform.rotation);
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject, 3f);
+    }
+
+    IEnumerator FlipSprite(Enemy enemy)
+    {
+        yield return new WaitForEndOfFrame();
+        enemy.FlipSprite();
+        Debug.Log("get flippin");
     }
 }

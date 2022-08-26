@@ -64,6 +64,9 @@ TagManager:
   - name: Climbing
     uniqueID: 3102903907
     locked: 0
+  - name: Props
+    uniqueID: 118949993
+    locked: 0
   - name: Platforms
     uniqueID: 2457532531
     locked: 0

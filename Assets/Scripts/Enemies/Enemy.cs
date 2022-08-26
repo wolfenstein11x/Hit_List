@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{
+{ 
     protected Transform BulletSpawnPoint;
     protected GameObject Bullet;
     protected GameObject MuzzleFlash;
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         return isDead;
     }
 
-    public bool TargetInSights()
+    public virtual bool TargetInSights()
     {
         float orientation = orientationTracker.GetOrientation();
         
@@ -74,13 +74,13 @@ public class Enemy : MonoBehaviour
 
         if (hit.collider.gameObject.tag == "Player")
         {
-            return true;
             //Debug.DrawRay(gunmanTransform.position, Vector2.right * hit.distance * new Vector2(orientation, 0f), Color.red);
+            return true;
         }
         else
         {
-            return false;
             //Debug.DrawRay(gunmanTransform.position, Vector2.right * hit.distance * new Vector2(orientation, 0f), Color.green);
+            return false;
         }
 
     }
