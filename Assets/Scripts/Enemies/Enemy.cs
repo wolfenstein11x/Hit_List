@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{ 
-    protected Transform BulletSpawnPoint;
-    protected GameObject Bullet;
-    protected GameObject MuzzleFlash;
-    protected Animator MuzzleFlashAnimator;
-    protected AudioSource GunShotSound;
-    protected float FireRange;
-    public Rigidbody2D Body;
+{
+    public float walkSpeed = 4f;
+    public Rigidbody2D body;
+    public float fireRange = 10f;
+    public Transform bulletSpawnPoint;
+    public GameObject muzzleFlash;
 
+    [SerializeField] GameObject bullet;
+
+    protected Animator animator;
+    protected Animator muzzleFlashAnimator;
+    protected AudioSource gunShotSound;
     protected OrientationTracker orientationTracker;
     protected Transform gunmanTransform;
 
@@ -24,7 +27,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class Enemy : MonoBehaviour
         if (isDead) { return; }
     }
 
-    public virtual void Walk(Rigidbody2D body, float walkSpeed)
+    public virtual void Walk()
     {
         Vector2 walkVelocity = new Vector2(walkSpeed, body.velocity.y);
         body.velocity = walkVelocity;
@@ -46,17 +49,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void ReverseDirection()
     {
-        
-    }
-
-    public virtual float GetRange()
-    {
-        return 0;
-    }
-
-    public virtual float GetWalkSpeed()
-    {
-        return 0;
+        walkSpeed *= -1.0f;
     }
 
     public bool IsDead()
@@ -68,7 +61,7 @@ public class Enemy : MonoBehaviour
     {
         float orientation = orientationTracker.GetOrientation();
         
-        RaycastHit2D hit = Physics2D.Raycast(gunmanTransform.position, Vector2.right * new Vector2(orientation, 0f), FireRange, raycastLayers);
+        RaycastHit2D hit = Physics2D.Raycast(gunmanTransform.position, Vector2.right * new Vector2(orientation, 0f), fireRange, raycastLayers);
         
         if (!hit) { return false; }
 
@@ -102,23 +95,23 @@ public class Enemy : MonoBehaviour
 
     public void FlipSprite()
     {
-        float xScale = Body.transform.localScale.x;
-        float yScale = Body.transform.localScale.y;
+        float xScale = body.transform.localScale.x;
+        float yScale = body.transform.localScale.y;
 
         // correct for the sprite flip point not being at its center
-        float xPosCorrected = Body.transform.position.x + (flipCorrection * Mathf.Sign(Body.velocity.x));
-        Body.transform.position = new Vector2(xPosCorrected, transform.position.y);
+        float xPosCorrected = body.transform.position.x + (flipCorrection * Mathf.Sign(body.velocity.x));
+        body.transform.position = new Vector2(xPosCorrected, transform.position.y);
         
         // flip sprite
-        Body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
+        body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
     }
 
     
     public void FireRound()
     {
-        GunShotSound.Play();
-        MuzzleFlashAnimator.SetTrigger("flash");
-        GameObject firedBullet = Instantiate(Bullet, BulletSpawnPoint.position, Bullet.transform.rotation);
+        gunShotSound.Play();
+        muzzleFlashAnimator.SetTrigger("flash");
+        GameObject firedBullet = Instantiate(bullet, bulletSpawnPoint.position, bullet.transform.rotation);
         firedBullet.transform.parent = gunmanTransform;
     }
 

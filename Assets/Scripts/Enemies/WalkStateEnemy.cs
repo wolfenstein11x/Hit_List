@@ -5,16 +5,11 @@ using UnityEngine;
 public class WalkStateEnemy : StateMachineBehaviour
 {
     Enemy enemy;
-    Rigidbody2D body;
-    float range;
-    float walkSpeed;
-
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy = animator.GetComponent<Enemy>();
-        body = animator.GetComponent<Rigidbody2D>();
-        range = enemy.GetRange();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -26,8 +21,7 @@ public class WalkStateEnemy : StateMachineBehaviour
             return;
         }
 
-        walkSpeed = enemy.GetWalkSpeed();
-        enemy.Walk(body, walkSpeed);
+        enemy.Walk();
         if (enemy.TargetInSights())
         {
             animator.SetBool("targetAcquired", true);
