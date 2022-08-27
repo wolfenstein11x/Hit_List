@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - TurnaroundPoint
   - WallBuffer
+  - Cover
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Projectiles
   - Player
   - Background
-  - BulletCatcher
+  - 
   - Hazards
   - Enemy
   - House
@@ -81,6 +82,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3921173483
+    locked: 0
+  - name: Cover
+    uniqueID: 1786863135
     locked: 0
   - name: HouseCover
     uniqueID: 2973952919
