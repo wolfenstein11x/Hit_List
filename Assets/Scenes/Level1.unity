@@ -10828,6 +10828,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
     - target: {fileID: 6568013502596624122, guid: 234060af4eb0ad947bee3bc5ddc3c82b, type: 3}
+      propertyPath: fireRange
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568013502596624122, guid: 234060af4eb0ad947bee3bc5ddc3c82b, type: 3}
       propertyPath: muzzleFlash
       value: 
       objectReference: {fileID: 1396533278}
@@ -10885,7 +10889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7318832266649801362, guid: 234060af4eb0ad947bee3bc5ddc3c82b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 234060af4eb0ad947bee3bc5ddc3c82b, type: 3}

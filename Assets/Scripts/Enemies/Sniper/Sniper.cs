@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class Sniper : Enemy
 {
-    //[SerializeField] float fireRange = 100f;
-    //[SerializeField] Transform bulletSpawnPoint;
-    //[SerializeField] GameObject bullet;
-    //[SerializeField] GameObject muzzleFlash;
-
-    //Animator animator;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        //animator = GetComponent<Animator>();
-        gunmanTransform = gameObject.transform;
-        raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
-        gunShotSound = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        body = GetComponent<Rigidbody2D>();
         muzzleFlashAnimator = muzzleFlash.GetComponent<Animator>();
-        //BulletSpawnPoint = bulletSpawnPoint;
-        //Bullet = bullet;
+        gunShotSound = GetComponent<AudioSource>();
+        gunmanTransform = gameObject.transform;
+        orientationTracker = GetComponent<OrientationTracker>();
+        raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
     }
 
     public override void TakeHit()
