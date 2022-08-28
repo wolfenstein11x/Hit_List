@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     bool isShooting = false;
     bool isAlive = true;
     bool takingHit = false;
+    bool dialogueMode = false;
     GrenadesTracker grenadesTracker;
     LivesTracker livesTracker;
 
@@ -57,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         if (!isAlive) { return; }
+        if (dialogueMode)
+        {
+            moveInput = new Vector2(0f, 0f);
+            return;
+        }
 
         moveInput = value.Get<Vector2>();
     }
@@ -80,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
 
     void OnFire(InputValue value)
     {
+        if (dialogueMode) { return; }
+
         animator.SetTrigger("shoot");
     }
 
@@ -94,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
     void OnThrow(InputValue value)
     {
         if (!grenadesTracker.HasGrenade()) { return; }
+        if (dialogueMode) { return; }
 
         animator.SetTrigger("throw");
     }
@@ -191,6 +200,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetTakingHit(bool status)
     {
         takingHit = status;
+    }
+
+    public void SetDialogueMode(bool status)
+    {
+        dialogueMode = status;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
