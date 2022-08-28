@@ -71,6 +71,9 @@ TagManager:
   - name: Platforms
     uniqueID: 2457532531
     locked: 0
+  - name: InsideHouse
+    uniqueID: 3230477679
+    locked: 0
   - name: House
     uniqueID: 3656666985
     locked: 0
