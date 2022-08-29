@@ -58,6 +58,6 @@ public class Dialog : MonoBehaviour
     {
         loadingText.enabled = true;
         dialogueBackground.SetActive(false);
-        //FindObjectOfType<LevelLoader>().LoadNextLevel();
+        FindObjectOfType<LevelLoader>().LoadNextLevel();
     }
 }
