@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 156, y: -113}
+  m_AnchoredPosition: {x: 81, y: -113}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &219787063
@@ -903,8 +903,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: -Started a war in Iraq
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4bbaea5a79214024b881113249416f16, type: 2}
-  m_sharedMaterial: {fileID: 7317687117957657984, guid: 4bbaea5a79214024b881113249416f16, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
+  m_sharedMaterial: {fileID: 8284120042419344052, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1074,7 +1074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -590.09814, y: 178.668}
+  m_AnchoredPosition: {x: -677, y: 178.668}
   m_SizeDelta: {x: 806.221, y: 201.184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1159816920
@@ -1267,8 +1267,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: -Lied about nuclear weapons being in Iraq
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4bbaea5a79214024b881113249416f16, type: 2}
-  m_sharedMaterial: {fileID: 7317687117957657984, guid: 4bbaea5a79214024b881113249416f16, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
+  m_sharedMaterial: {fileID: 8284120042419344052, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1646,8 +1646,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: -Killed hundreds of thousands of Iraqi civilians
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4bbaea5a79214024b881113249416f16, type: 2}
-  m_sharedMaterial: {fileID: 7317687117957657984, guid: 4bbaea5a79214024b881113249416f16, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
+  m_sharedMaterial: {fileID: 8284120042419344052, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
