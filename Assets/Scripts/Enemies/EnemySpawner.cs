@@ -6,23 +6,18 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] Enemy[] enemies;
     [SerializeField] Transform[] spawnPoints;
-    [SerializeField] bool[] facingLeft;
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i=0; i < enemies.Length; i++)
+        if (collision.gameObject.tag == "Player")
         {
-            Enemy enemy = Instantiate(enemies[i], spawnPoints[i].position, transform.rotation);
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                Enemy enemy = Instantiate(enemies[i], spawnPoints[i].position, transform.rotation);
+            }
+
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject, 3f);
     }
 
-    IEnumerator FlipSprite(Enemy enemy)
-    {
-        yield return new WaitForEndOfFrame();
-        enemy.FlipSprite();
-        Debug.Log("get flippin");
-    }
 }
