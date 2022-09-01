@@ -39,6 +39,8 @@ public class Enemy : MonoBehaviour
     public virtual void TakeHit()
     {
         if (isDead) { return; }
+        animator.SetTrigger("takeHit");
+        isDead = true;
     }
 
     public virtual void Walk()

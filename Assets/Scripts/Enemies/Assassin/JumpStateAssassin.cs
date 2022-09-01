@@ -5,26 +5,28 @@ using UnityEngine;
 public class JumpStateAssassin : StateMachineBehaviour
 {
     Enemy enemy;
+    Rigidbody2D body;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy = animator.GetComponent<Enemy>();
+        body = enemy.body;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (enemy.TargetInSights())
+        if (body.velocity.y <= Mathf.Epsilon)
         {
-            animator.SetTrigger("aim");
+            animator.SetTrigger("land");
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("aim");
+        animator.ResetTrigger("land");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

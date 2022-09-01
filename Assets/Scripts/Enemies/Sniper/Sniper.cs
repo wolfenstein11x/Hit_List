@@ -16,12 +16,7 @@ public class Sniper : Enemy
         raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
     }
 
-    public override void TakeHit()
-    {
-        base.TakeHit();
-        animator.SetTrigger("takeHit");
-        isDead = true;
-    }
+    
 
     public override bool TargetInSights()
     {

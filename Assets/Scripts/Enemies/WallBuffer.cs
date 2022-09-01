@@ -16,6 +16,7 @@ public class WallBuffer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("hit a wall");
         if (enemy.IsDead()) { return; }
 
         if (collision.gameObject.tag != "TurnaroundPoint") { return; }
