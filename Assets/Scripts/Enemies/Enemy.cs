@@ -121,4 +121,9 @@ public class Enemy : MonoBehaviour
     {
         return !FindObjectOfType<PlayerMovement>().IsAlive();
     }
+
+    public void HoldPosition()
+    {
+        body.velocity = new Vector2(0f, 0f);
+    }
 }

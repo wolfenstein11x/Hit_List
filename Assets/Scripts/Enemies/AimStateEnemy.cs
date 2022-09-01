@@ -15,6 +15,8 @@ public class AimStateEnemy : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        enemy.HoldPosition();
+
         if (enemy.TargetDead())
         {
             animator.SetBool("targetDead", true);
