@@ -169,11 +169,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("climbing_idle", !playerHasVerticalalSpeed);
     }
 
-    public void Die()
+    public void Die(bool doDeathKick=true)
     {
         isAlive = false;
         animator.SetTrigger("die");
-        rigidBody.velocity = deathKick;
+
+        if (doDeathKick) { rigidBody.velocity = deathKick; }
 
         FindObjectOfType<PopupManager>().GameOver(true);
     }
