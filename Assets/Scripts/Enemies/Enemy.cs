@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public GameObject muzzleFlash;
 
     [SerializeField] GameObject bullet;
+    [SerializeField] Collider2D[] colliders;
 
     protected Animator animator;
     protected Animator muzzleFlashAnimator;
@@ -125,5 +126,13 @@ public class Enemy : MonoBehaviour
     public void HoldPosition()
     {
         body.velocity = new Vector2(0f, 0f);
+    }
+
+    private void DisableColliders()
+    {
+        foreach (Collider2D collider in colliders)
+        {
+            collider.enabled = false;
+        }
     }
 }

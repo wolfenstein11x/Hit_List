@@ -26,13 +26,13 @@ public class Sniper : Enemy
 
         if (hit.collider.gameObject.tag == "Player")
         {
+            //Debug.DrawRay(gunmanTransform.position, Vector2.left * hit.distance, Color.red);
             return true;
-            //Debug.DrawRay(gunmanTransform.position, Vector2.right * hit.distance * new Vector2(orientation, 0f), Color.red);
         }
         else
         {
+            //Debug.DrawRay(gunmanTransform.position, Vector2.left * hit.distance, Color.green);
             return false;
-            //Debug.DrawRay(gunmanTransform.position, Vector2.right * hit.distance * new Vector2(orientation, 0f), Color.green);
         }
     }
 

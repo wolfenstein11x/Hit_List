@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3474190489342438186}
   - component: {fileID: 4320918540508884072}
   - component: {fileID: 8120094615579850880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crate
   m_TagString: TurnaroundPoint
   m_Icon: {fileID: 0}
