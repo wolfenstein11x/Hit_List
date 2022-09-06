@@ -11,7 +11,8 @@ public class Enemy : MonoBehaviour
     public GameObject muzzleFlash;
 
     [SerializeField] GameObject bullet;
-    [SerializeField] Collider2D[] colliders;
+    [SerializeField] Collider2D[] livingColliders;
+    [SerializeField] GameObject deadCollider;
 
     protected Animator animator;
     protected Animator muzzleFlashAnimator;
@@ -41,6 +42,7 @@ public class Enemy : MonoBehaviour
     {
         if (isDead) { return; }
         animator.SetTrigger("takeHit");
+        //AdjustCollidersForDeath();
         isDead = true;
     }
 
@@ -128,9 +130,11 @@ public class Enemy : MonoBehaviour
         body.velocity = new Vector2(0f, 0f);
     }
 
-    private void DisableColliders()
+    public virtual void AdjustCollidersForDeath()
     {
-        foreach (Collider2D collider in colliders)
+        deadCollider.SetActive(true);
+
+        foreach (Collider2D collider in livingColliders)
         {
             collider.enabled = false;
         }

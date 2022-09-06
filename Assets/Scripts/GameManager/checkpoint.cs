@@ -20,5 +20,6 @@ public class checkpoint : MonoBehaviour
         if (levelToUnlock <= savedData.highestUnlockedLevel) { return; }
 
         savedData.highestUnlockedLevel = levelToUnlock;
+        Debug.Log("Unlocked level " + savedData.highestUnlockedLevel);
     }
 }

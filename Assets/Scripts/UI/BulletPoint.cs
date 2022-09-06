@@ -16,6 +16,7 @@ public class BulletPoint : MonoBehaviour
 
     IEnumerator TypeBulletPoint()
     {
+
         bulletPointTextBox.text = "";
         foreach (var letter in bulletPoint.ToCharArray())
         {

@@ -17,9 +17,10 @@ public class Dialog : MonoBehaviour
 
     void Start()
     {
-        ShowArrow(false);
+        //Debug.Log("dialog triggered");
+        ShowArrow(true);
         loadingText.enabled = false;
-        TypeNextLine();
+        //TypeNextLine();
     }
 
     public void TypeNextLine()
@@ -38,10 +39,14 @@ public class Dialog : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        //Debug.Log("entered coroutine");
+
         dialogueText.text = "";
         foreach (var letter in lines[currentLine].ToCharArray())
         {
             dialogueText.text += letter;
+            //Debug.Log("made it here");
+
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
 

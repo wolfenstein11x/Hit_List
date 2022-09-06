@@ -16,6 +16,11 @@ public class PatrolGuard : Enemy
         raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
     }
 
-    
+    public override void AdjustCollidersForDeath()
+    {
+        base.AdjustCollidersForDeath();
+
+        GetComponentInChildren<WallBuffer>().gameObject.SetActive(false);
+    }
 
 }

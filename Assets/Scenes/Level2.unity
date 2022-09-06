@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   savedData: {fileID: 11400000, guid: c23b409bec685c043810815f238eea18, type: 2}
-  levelToUnlock: 2
+  levelToUnlock: 3
 --- !u!61 &658865130
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3312,7 +3312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &664061137
 Transform:
   m_ObjectHideFlags: 0
@@ -3321,7 +3321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664061136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 140.5, y: 0.6, z: 0}
+  m_LocalPosition: {x: 189.11, y: -3.5, z: 0}
   m_LocalScale: {x: 1.4143286, y: 1.4143286, z: 1.4143286}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3796,7 +3796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868123797}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.39, y: 2.39, z: 0}
+  m_LocalPosition: {x: 7.88, y: 2.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9642,7 +9642,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 20
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -11832,7 +11832,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -13057,8 +13057,8 @@ Tilemap:
     m_Data: {fileID: -1137903264212578849, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -2261615392147372538, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1598953843220727423, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 46
     m_Data: {fileID: -5830933179451950236, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
   - m_RefCount: 21
@@ -13088,11 +13088,11 @@ Tilemap:
   - m_RefCount: 10
     m_Data: {fileID: -2805862792135655077, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 6111690135380871480, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
+    m_Data: {fileID: -1598953843220727423, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: -8927250628262983986, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 6111690135380871480, guid: aff2e1025b3883346993693f07b2c3c5, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 850
     m_Data:
@@ -32612,6 +32612,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 664061137}
     m_Modifications:
+    - target: {fileID: 1731315428514662735, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 025d66d2f52d9eb4594dbf4dc5dbd738, type: 3}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.data[0]
+      value: Who are you? Get out of my house!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.data[1]
+      value: I don't want to go to jail!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.data[2]
+      value: Ok fine I'll go to jail...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: Just promise they won't torture- I mean, no enhanced interrogation!
+      objectReference: {fileID: 0}
     - target: {fileID: 1731315428520141558, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
       propertyPath: m_Name
       value: Dialog
@@ -32659,6 +32683,14 @@ PrefabInstance:
     - target: {fileID: 1731315428520141559, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315429838790160, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315429838790161, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
@@ -32746,11 +32778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161950841096061478, guid: 938470840e2f52a4a8d890d153312365, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.9
+      value: -18.88
       objectReference: {fileID: 0}
     - target: {fileID: 3161950841096061478, guid: 938470840e2f52a4a8d890d153312365, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.71
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 3161950841096061478, guid: 938470840e2f52a4a8d890d153312365, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33282,6 +33314,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1163449859}
     m_Modifications:
+    - target: {fileID: 1587019171, guid: 234060af4eb0ad947bee3bc5ddc3c82b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7318832266649801360, guid: 234060af4eb0ad947bee3bc5ddc3c82b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -33460,7 +33496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7899840142282357419, guid: 91340b2a9caed2b469f55c374004ec93, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.75
+      value: 6.53
       objectReference: {fileID: 0}
     - target: {fileID: 7899840142282357419, guid: 91340b2a9caed2b469f55c374004ec93, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33525,11 +33561,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8000719829853819947, guid: 8e3c897f5f1c66549877e824cb3970e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.9
+      value: -18.88
       objectReference: {fileID: 0}
     - target: {fileID: 8000719829853819947, guid: 8e3c897f5f1c66549877e824cb3970e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7099998
+      value: -0.48999977
       objectReference: {fileID: 0}
     - target: {fileID: 8000719829853819947, guid: 8e3c897f5f1c66549877e824cb3970e1, type: 3}
       propertyPath: m_LocalPosition.z

@@ -32,4 +32,11 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
     }
+
+    public void LoadLevel(int levelIdx)
+    {
+        SceneManager.LoadScene(levelIdx);
+    }
+
+    
 }
