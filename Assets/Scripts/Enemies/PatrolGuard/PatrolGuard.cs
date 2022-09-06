@@ -14,11 +14,12 @@ public class PatrolGuard : Enemy
         gunmanTransform = gameObject.transform;
         orientationTracker = GetComponent<OrientationTracker>();
         raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
+        bodyCollider = GetComponent<Collider2D>();
     }
 
-    public override void AdjustCollidersForDeath()
+    public override void RemoveColliders()
     {
-        base.AdjustCollidersForDeath();
+        base.RemoveColliders();
 
         GetComponentInChildren<WallBuffer>().gameObject.SetActive(false);
     }

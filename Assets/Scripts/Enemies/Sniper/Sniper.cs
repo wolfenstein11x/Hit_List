@@ -14,9 +14,10 @@ public class Sniper : Enemy
         gunmanTransform = gameObject.transform;
         orientationTracker = GetComponent<OrientationTracker>();
         raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
+        bodyCollider = GetComponent<Collider2D>();
     }
 
-    
+
 
     public override bool TargetInSights()
     {

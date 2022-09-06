@@ -11,14 +11,13 @@ public class Enemy : MonoBehaviour
     public GameObject muzzleFlash;
 
     [SerializeField] GameObject bullet;
-    [SerializeField] Collider2D[] livingColliders;
-    [SerializeField] GameObject deadCollider;
 
     protected Animator animator;
     protected Animator muzzleFlashAnimator;
     protected AudioSource gunShotSound;
     protected OrientationTracker orientationTracker;
     protected Transform gunmanTransform;
+    protected Collider2D bodyCollider;
 
     protected bool isDead = false;
     protected LayerMask raycastLayers;
@@ -42,7 +41,6 @@ public class Enemy : MonoBehaviour
     {
         if (isDead) { return; }
         animator.SetTrigger("takeHit");
-        //AdjustCollidersForDeath();
         isDead = true;
     }
 
@@ -130,13 +128,8 @@ public class Enemy : MonoBehaviour
         body.velocity = new Vector2(0f, 0f);
     }
 
-    public virtual void AdjustCollidersForDeath()
+    public virtual void RemoveColliders()
     {
-        deadCollider.SetActive(true);
-
-        foreach (Collider2D collider in livingColliders)
-        {
-            collider.enabled = false;
-        }
+        
     }
 }
