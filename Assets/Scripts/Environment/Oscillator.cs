@@ -47,5 +47,10 @@ public class Oscillator : MonoBehaviour
         {
             collision.collider.transform.SetParent(null);
         }
+
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            collision.collider.transform.SetParent(null);
+        }
     }
 }
