@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81, y: -113}
+  m_AnchoredPosition: {x: 81, y: -149}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &219787063
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff4bacb55559f804ea3e68f690c321cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 296286a221cd6674eb0213d2ee4e68ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -Started a war in Iraq
+  m_text: -Planned coups
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
   m_sharedMaterial: {fileID: 8284120042419344052, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
@@ -993,7 +993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lettersPerSecond: 50
   bulletPointTextBox: {fileID: 791439984}
-  bulletPoint: -Started a war in Iraq
+  bulletPoint: -Planned coups
 --- !u!1 &979329847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lettersPerSecond: 50
   bulletPointTextBox: {fileID: 1416310441}
-  bulletPoint: -Lied about nuclear weapons being in Iraq
+  bulletPoint: -Bragged about planning coups on live TV
 --- !u!114 &1416310441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -Lied about nuclear weapons being in Iraq
+  m_text: -Bragged about planning coups on live TV
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
   m_sharedMaterial: {fileID: 8284120042419344052, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lettersPerSecond: 50
   bulletPointTextBox: {fileID: 1955486350}
-  bulletPoint: -Killed hundreds of thousands of Iraqi civilians
+  bulletPoint: -Tried to start war with Iran
 --- !u!114 &1955486350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1934,7 +1934,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -Killed hundreds of thousands of Iraqi civilians
+  m_text: -Tried to start war with Iran
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
   m_sharedMaterial: {fileID: 8284120042419344052, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
@@ -2090,7 +2090,7 @@ GameObject:
   - component: {fileID: 2068036970}
   - component: {fileID: 2068036969}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2136,7 +2136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GEORGE W. BUSH
+  m_text: JOHN BOLTON
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}
   m_sharedMaterial: {fileID: 8284120042419344052, guid: 02308077f66db724eb5869b8be3b9cc4, type: 2}

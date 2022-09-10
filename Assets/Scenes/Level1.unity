@@ -27612,6 +27612,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 664061137}
     m_Modifications:
+    - target: {fileID: 1731315428514662735, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 46eebdcce53e65a4e8aa2102365615bb, type: 3}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.data[0]
+      value: Stop! Don't shoot! Please!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.data[1]
+      value: I can help you, I'm really good at planning coup d'etat...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.data[2]
+      value: I've planned many a coup d'etat before, I'm really smart!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315428520141556, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: What do you say, let me go and I'll plan a coup for you? Please!
+      objectReference: {fileID: 0}
     - target: {fileID: 1731315428520141558, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
       propertyPath: m_Name
       value: Dialog
@@ -27659,6 +27683,10 @@ PrefabInstance:
     - target: {fileID: 1731315428520141559, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731315429838790161, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40539092d41ce7e4e82c0d1fa5d712f4, type: 3}
