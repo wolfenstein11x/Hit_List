@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   body: {fileID: 0}
-  fireRange: 31
+  fireRange: 50
   bulletSpawnPoint: {fileID: 2035572114263192007}
   muzzleFlash: {fileID: 5933758775010071025}
   bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
