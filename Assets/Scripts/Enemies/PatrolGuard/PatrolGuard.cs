@@ -17,11 +17,6 @@ public class PatrolGuard : Enemy
         bodyCollider = GetComponent<Collider2D>();
     }
 
-    public override void RemoveColliders()
-    {
-        base.RemoveColliders();
-
-        GetComponentInChildren<WallBuffer>().gameObject.SetActive(false);
-    }
+    
 
 }

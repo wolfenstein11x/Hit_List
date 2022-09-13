@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     bool dialogueMode = false;
     GrenadesTracker grenadesTracker;
     LivesTracker livesTracker;
+    float epsilon = 0.01f;
 
     // Start is called before the first frame update
     void Start()
@@ -132,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (takingHit) { return; }
 
-        bool playerHasHorizontalSpeed = Mathf.Abs(rigidBody.velocity.x ) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(rigidBody.velocity.x ) > epsilon;
 
         if (playerHasHorizontalSpeed)
         {

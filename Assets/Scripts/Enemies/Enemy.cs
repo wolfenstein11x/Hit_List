@@ -22,16 +22,13 @@ public class Enemy : MonoBehaviour
     protected bool isDead = false;
     protected LayerMask raycastLayers;
 
-    private float flipCorrection = 0.02f;
     
-    
-    // Start is called before the first frame update
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -86,7 +83,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDead) { return; }
 
@@ -94,6 +91,14 @@ public class Enemy : MonoBehaviour
         {
             TakeHit();
         }
+
+        else if (collision.gameObject.tag == "TurnaroundPoint") 
+        {
+            ReverseDirection();
+            FlipSprite();
+        }
+
+        
     }
 
     public void FlipSprite()
@@ -102,8 +107,8 @@ public class Enemy : MonoBehaviour
         float yScale = body.transform.localScale.y;
 
         // correct for the sprite flip point not being at its center
-        float xPosCorrected = body.transform.position.x + (flipCorrection * Mathf.Sign(body.velocity.x));
-        body.transform.position = new Vector2(xPosCorrected, transform.position.y);
+        //float xPosCorrected = body.transform.position.x + (flipCorrection * Mathf.Sign(body.velocity.x));
+        //body.transform.position = new Vector2(xPosCorrected, transform.position.y);
         
         // flip sprite
         body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
