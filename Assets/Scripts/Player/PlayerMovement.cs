@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
-    [SerializeField] float flipCorrection = 1f;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject muzzleFlash;
     [SerializeField] Transform bulletSpawnPoint;
@@ -137,10 +136,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerHasHorizontalSpeed)
         {
-            // correct for the sprite flip point not being at its center
-            float xPosCorrected = transform.position.x + (flipCorrection * Mathf.Sign(rigidBody.velocity.x));  
-            transform.position = new Vector2(xPosCorrected, transform.position.y);
-
             // flip sprite
             transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x) * sizeScale.x, 1f * sizeScale.y);
         }

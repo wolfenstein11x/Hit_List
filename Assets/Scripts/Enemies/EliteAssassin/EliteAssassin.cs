@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EliteAssassin : Enemy
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject grenade;
+    [SerializeField] Transform grenadeSpawnPoint;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -17,5 +19,9 @@ public class EliteAssassin : Enemy
         bodyCollider = GetComponent<Collider2D>();
     }
 
-    
+    public void ThrowGrenade()
+    {
+        GameObject liveGrenade = Instantiate(grenade, grenadeSpawnPoint.position, grenade.transform.rotation);
+        liveGrenade.transform.parent = gameObject.transform;
+    }
 }

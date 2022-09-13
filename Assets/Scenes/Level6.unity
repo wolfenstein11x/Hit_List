@@ -59125,6 +59125,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1604347423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1604347424}
+  m_Layer: 0
+  m_Name: GrenadeSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1604347424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604347423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.71, y: -0.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8689191345801881744}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1638181344
 GameObject:
   m_ObjectHideFlags: 0
@@ -60976,6 +61007,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1050551330, guid: 938470840e2f52a4a8d890d153312365, type: 3}
+      propertyPath: m_Size.x
+      value: 2.482975
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050551330, guid: 938470840e2f52a4a8d890d153312365, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.13633156
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333885015, guid: 938470840e2f52a4a8d890d153312365, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333885017, guid: 938470840e2f52a4a8d890d153312365, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0093727
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333885017, guid: 938470840e2f52a4a8d890d153312365, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0046863556
+      objectReference: {fileID: 0}
     - target: {fileID: 3161950841096061472, guid: 938470840e2f52a4a8d890d153312365, type: 3}
       propertyPath: m_Name
       value: Player
@@ -61752,6 +61803,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 807656877676265936}
   muzzleFlash: {fileID: 8689191345801881743}
   bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
+  grenade: {fileID: 4419074474260612403, guid: 58f0464760674e74db351fb399166374, type: 3}
+  grenadeSpawnPoint: {fileID: 1604347424}
 --- !u!1001 &7899840143282374156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61968,11 +62021,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8332621226044651356, guid: a2181016017b2fc438b6df6ac8c66be7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1207161134317755989, guid: a2181016017b2fc438b6df6ac8c66be7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2181016017b2fc438b6df6ac8c66be7, type: 3}
 --- !u!1 &8689191345801881743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4266661106123947881, guid: a2181016017b2fc438b6df6ac8c66be7, type: 3}
+  m_PrefabInstance: {fileID: 8689191345801881742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8689191345801881744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1207161132792528055, guid: a2181016017b2fc438b6df6ac8c66be7, type: 3}
   m_PrefabInstance: {fileID: 8689191345801881742}
   m_PrefabAsset: {fileID: 0}
