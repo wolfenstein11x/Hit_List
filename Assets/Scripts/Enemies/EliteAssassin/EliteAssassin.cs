@@ -7,6 +7,7 @@ public class EliteAssassin : Enemy
     [SerializeField] GameObject grenade;
     [SerializeField] Transform grenadeSpawnPoint;
     [SerializeField] float sightRange = 100;
+    [SerializeField] float runSpeed = 10f;
 
     public bool grenadeThrower = true;
 
@@ -55,6 +56,17 @@ public class EliteAssassin : Enemy
 
     }
 
+    public void Run()
+    {
+        Vector2 runVelocity = new Vector2(runSpeed, body.velocity.y);
+        body.velocity = runVelocity;
+    }
 
-    
+    public override void ReverseDirection()
+    {
+        runSpeed *= -1f;
+    }
+
+
+
 }

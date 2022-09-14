@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleStateEliteAssassin : StateMachineBehaviour
+public class RunStateEliteAssassin : StateMachineBehaviour
 {
     EliteAssassin eliteAssassin;
 
@@ -15,50 +15,28 @@ public class IdleStateEliteAssassin : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (eliteAssassin.grenadeThrower)
+        if (eliteAssassin.TargetDead())
         {
-            animator.SetTrigger("throw");
+            animator.SetBool("targetDead", true);
+            return;
         }
 
-        bool targetSpotted = eliteAssassin.TargetSpotted();
-        bool targetSpottedBehind = eliteAssassin.TargetSpotted(-1);
-
-        if (targetSpotted)
+        eliteAssassin.Run();
+        if (!eliteAssassin.TargetSpotted())
         {
-            if (eliteAssassin.TargetInSights())
-            {
-                // shoot
-                animator.SetBool("targetAcquired", true);
-            }
-
-            else
-            {
-                animator.SetBool("targetSpotted", true);
-            }
+            animator.SetBool("targetSpotted", false);
         }
 
-        else if (targetSpottedBehind)
+        else if (eliteAssassin.TargetInSights())
         {
-            eliteAssassin.FlipSprite();
-            eliteAssassin.ReverseDirection();
-
-            if (eliteAssassin.TargetInSights())
-            {
-                // shoot
-                animator.SetBool("targetAcquired", true);
-            }
-
-            else
-            {
-                animator.SetBool("targetSpotted", true);
-            }
+            animator.SetBool("targetAcquired", true);
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("throw");
+        animator.SetBool("targetSpotted", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

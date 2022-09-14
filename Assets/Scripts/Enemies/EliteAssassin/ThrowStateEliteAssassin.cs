@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleStateEliteAssassin : StateMachineBehaviour
+public class ThrowStateEliteAssassin : StateMachineBehaviour
 {
     EliteAssassin eliteAssassin;
 
@@ -15,11 +15,6 @@ public class IdleStateEliteAssassin : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (eliteAssassin.grenadeThrower)
-        {
-            animator.SetTrigger("throw");
-        }
-
         bool targetSpotted = eliteAssassin.TargetSpotted();
         bool targetSpottedBehind = eliteAssassin.TargetSpotted(-1);
 
@@ -58,7 +53,7 @@ public class IdleStateEliteAssassin : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("throw");
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
