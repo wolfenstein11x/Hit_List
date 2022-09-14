@@ -371,7 +371,7 @@ MonoBehaviour:
   grenade: {fileID: 4419074474260612403, guid: 58f0464760674e74db351fb399166374, type: 3}
   grenadeSpawnPoint: {fileID: 1604347424}
   sightRange: 100
-  runSpeed: 9
+  runSpeed: 12
   grenadeThrower: 1
 --- !u!1 &8332621226302302557
 GameObject:
