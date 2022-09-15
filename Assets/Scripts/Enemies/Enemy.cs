@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
         // correct for the sprite flip point not being at its center
         //float xPosCorrected = body.transform.position.x + (flipCorrection * Mathf.Sign(body.velocity.x));
         //body.transform.position = new Vector2(xPosCorrected, transform.position.y);
-        
+        Debug.Log("flip!");
         // flip sprite
         body.transform.localScale = new Vector2(-1.0f * xScale, yScale);
     }

@@ -67,6 +67,16 @@ public class EliteAssassin : Enemy
         runSpeed *= -1f;
     }
 
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDead) { return; }
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            TakeHit();
+        }
+    }
+
 
 
 }
