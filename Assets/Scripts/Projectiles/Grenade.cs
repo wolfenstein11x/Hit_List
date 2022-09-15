@@ -73,6 +73,8 @@ public class Grenade : MonoBehaviour
 
             if (enemy != null)
             {
+                if (enemy.grenadeImmune) { return; }
+
                 enemy.TakeHit();
                 AddExplosionForce(enemy.GetComponent<Rigidbody2D>());
             }

@@ -367,6 +367,7 @@ MonoBehaviour:
   fireRange: 10
   bulletSpawnPoint: {fileID: 8332621226302302558}
   muzzleFlash: {fileID: 4266661106123947881}
+  grenadeImmune: 1
   bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
   grenade: {fileID: 4419074474260612403, guid: 58f0464760674e74db351fb399166374, type: 3}
   grenadeSpawnPoint: {fileID: 1604347424}
