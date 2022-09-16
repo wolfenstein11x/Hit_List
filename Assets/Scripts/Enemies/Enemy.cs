@@ -92,14 +92,6 @@ public class Enemy : MonoBehaviour
         {
             TakeHit();
         }
-
-        else if (collision.gameObject.tag == "TurnaroundPoint") 
-        {
-            ReverseDirection();
-            FlipSprite();
-        }
-
-        
     }
 
     public void FlipSprite()

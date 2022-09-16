@@ -1,63 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &268214777
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 268214778}
-  - component: {fileID: 268214779}
-  m_Layer: 0
-  m_Name: feetCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &268214778
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268214777}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.072, y: -1.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1207161132792528055}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &268214779
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268214777}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.026480675, y: -0.64685893}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0529613, y: 0.36390066}
-  m_EdgeRadius: 0
 --- !u!1 &1604347423
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,11 +42,11 @@ GameObject:
   - component: {fileID: 1207161132792528055}
   - component: {fileID: 1207161132792528056}
   - component: {fileID: 1207161134317755986}
-  - component: {fileID: 1207161134317755987}
   - component: {fileID: 1207161134317755988}
   - component: {fileID: 1207161134317755991}
   - component: {fileID: 1207161134317755990}
   - component: {fileID: 7518345999743112250}
+  - component: {fileID: 5795671888605295240}
   m_Layer: 0
   m_Name: EliteAssassin
   m_TagString: Untagged
@@ -127,7 +69,6 @@ Transform:
   - {fileID: 8332621226302302558}
   - {fileID: 4266661106123947884}
   - {fileID: 1604347424}
-  - {fileID: 268214778}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -204,22 +145,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1207161134317755987
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207161132792528057}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.12596035, y: 0.52945876}
-  m_Size: {x: 1.5959644, y: 4.2003913}
-  m_Direction: 0
 --- !u!82 &1207161134317755988
 AudioSource:
   m_ObjectHideFlags: 0
@@ -373,7 +298,35 @@ MonoBehaviour:
   grenadeSpawnPoint: {fileID: 1604347424}
   sightRange: 100
   runSpeed: 12
+  facingLeft: 0
+  throwRange: 25
   grenadeThrower: 1
+--- !u!61 &5795671888605295240
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207161132792528057}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10129166, y: 0.20897675}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.35, y: 0.5}
+    oldSize: {x: 4.59, y: 5.79}
+    newSize: {x: 4.59, y: 6.18}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.161972, y: 4.6701508}
+  m_EdgeRadius: 0
 --- !u!1 &8332621226302302557
 GameObject:
   m_ObjectHideFlags: 0

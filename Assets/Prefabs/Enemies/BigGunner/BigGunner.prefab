@@ -1,63 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &300929320
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 300929321}
-  - component: {fileID: 300929322}
-  m_Layer: 14
-  m_Name: feetCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &300929321
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 300929320}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.815, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3104044499595517705}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &300929322
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 300929320}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.04272762, y: -0.22320127}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1489975, y: 0.5814905}
-  m_EdgeRadius: 0
 --- !u!1 &3104044499595517711
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +16,7 @@ GameObject:
   - component: {fileID: 2632487822595017555}
   - component: {fileID: 5471644895394376419}
   - component: {fileID: 3332099806843867476}
+  - component: {fileID: 1653053522}
   m_Layer: 14
   m_Name: BigGunner
   m_TagString: Enemy
@@ -95,7 +38,6 @@ Transform:
   m_Children:
   - {fileID: 8357993927104057970}
   - {fileID: 1333589583397299118}
-  - {fileID: 300929321}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -182,11 +124,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.28542513, y: 0.28761435}
-  m_Size: {x: 1.4968148, y: 4.2899523}
+  m_Offset: {x: 1.6087875, y: -2.8423948}
+  m_Size: {x: 0.24327087, y: 2.0561962}
   m_Direction: 0
 --- !u!82 &934171514582438932
 AudioSource:
@@ -335,7 +277,34 @@ MonoBehaviour:
   fireRange: 10
   bulletSpawnPoint: {fileID: 8357993927104057970}
   muzzleFlash: {fileID: 1333589583397299115}
+  grenadeImmune: 0
   bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
+--- !u!61 &1653053522
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104044499595517711}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.064162254, y: 0.13142872}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.33, y: 0.5}
+    oldSize: {x: 4.65, y: 6.06}
+    newSize: {x: 4.59, y: 5.87}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.1594372, y: 4.935644}
+  m_EdgeRadius: 0
 --- !u!1 &8357993927104057971
 GameObject:
   m_ObjectHideFlags: 0

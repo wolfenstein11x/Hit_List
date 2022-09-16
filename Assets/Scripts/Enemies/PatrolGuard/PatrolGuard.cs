@@ -17,6 +17,12 @@ public class PatrolGuard : Enemy
         bodyCollider = GetComponent<Collider2D>();
     }
 
-    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (isDead) { return; }
+
+        ReverseDirection();
+        FlipSprite();
+    }
 
 }

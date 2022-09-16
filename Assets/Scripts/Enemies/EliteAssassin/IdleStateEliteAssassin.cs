@@ -17,7 +17,10 @@ public class IdleStateEliteAssassin : StateMachineBehaviour
     {
         if (eliteAssassin.grenadeThrower)
         {
-            animator.SetTrigger("throw");
+            if (eliteAssassin.PlayerInThrowRange())
+            {
+                animator.SetTrigger("throw");
+            }
         }
 
         bool targetSpotted = eliteAssassin.TargetSpotted();

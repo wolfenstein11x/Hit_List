@@ -8,6 +8,8 @@ public class EliteAssassin : Enemy
     [SerializeField] Transform grenadeSpawnPoint;
     [SerializeField] float sightRange = 100;
     [SerializeField] float runSpeed = 10f;
+    [SerializeField] bool facingLeft = false;
+    [SerializeField] float throwRange = 50f;
 
     public bool grenadeThrower = true;
 
@@ -24,6 +26,12 @@ public class EliteAssassin : Enemy
         raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
         bodyCollider = GetComponent<Collider2D>();
         target = FindObjectOfType<PlayerMovement>();
+
+        if (facingLeft)
+        {
+            ReverseDirection();
+            FlipSprite();
+        }
     }
 
     public void ThrowGrenade()
@@ -75,6 +83,11 @@ public class EliteAssassin : Enemy
         {
             TakeHit();
         }
+    }
+
+    public bool PlayerInThrowRange()
+    {
+        return Vector3.Distance(target.transform.position, transform.position) <= throwRange;
     }
 
 
