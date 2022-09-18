@@ -2,36 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkStateEnemy : StateMachineBehaviour
+public class IdleStateAssassin : StateMachineBehaviour
 {
-    Enemy enemy;
-    
+    Assassin assassin;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemy = animator.GetComponent<Enemy>();
+        assassin = animator.GetComponent<Assassin>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (enemy.TargetDead())
+        if (assassin.grenadeThrower)
         {
-            animator.SetBool("targetDead", true);
-            return;
+            if (assassin.PlayerInThrowRange())
+            {
+                animator.SetTrigger("throw");
+            }
         }
 
-        enemy.Move();
-        if (enemy.TargetInSights())
+        bool targetSpotted = assassin.TargetSpotted();
+        bool targetSpottedBehind = assassin.TargetSpotted(-1);
+
+        if (targetSpotted)
         {
-            animator.SetBool("targetAcquired", true);
+            if (assassin.TargetInSights())
+            {
+                // shoot
+                animator.SetBool("targetAcquired", true);
+            }
+
+            else
+            {
+                animator.SetBool("targetSpotted", true);
+            }
+        }
+
+        else if (targetSpottedBehind)
+        {
+            assassin.FlipSprite();
+            assassin.ReverseDirection();
+
+            if (assassin.TargetInSights())
+            {
+                // shoot
+                animator.SetBool("targetAcquired", true);
+            }
+
+            else
+            {
+                animator.SetBool("targetSpotted", true);
+            }
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        animator.ResetTrigger("throw");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -2,27 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkStateEnemy : StateMachineBehaviour
+public class MoveStateAssassin : StateMachineBehaviour
 {
-    Enemy enemy;
-    
+    Assassin assassin;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemy = animator.GetComponent<Enemy>();
+        assassin = animator.GetComponent<Assassin>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (enemy.TargetDead())
+        if (assassin.TargetDead())
         {
             animator.SetBool("targetDead", true);
             return;
         }
 
-        enemy.Move();
-        if (enemy.TargetInSights())
+        assassin.Move();
+        if (!assassin.TargetSpotted())
+        {
+            animator.SetBool("targetSpotted", false);
+        }
+
+        else if (assassin.TargetInSights())
         {
             animator.SetBool("targetAcquired", true);
         }
@@ -31,7 +36,7 @@ public class WalkStateEnemy : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        animator.SetBool("targetSpotted", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

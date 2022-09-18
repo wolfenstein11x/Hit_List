@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float walkSpeed = 4f;
+    public float moveSpeed = 4f;
     public Rigidbody2D body;
     public float fireRange = 10f;
     public Transform bulletSpawnPoint;
@@ -42,15 +42,15 @@ public class Enemy : MonoBehaviour
         isDead = true;
     }
 
-    public virtual void Walk()
+    public virtual void Move()
     {
-        Vector2 walkVelocity = new Vector2(walkSpeed, body.velocity.y);
-        body.velocity = walkVelocity;
+        Vector2 moveVelocity = new Vector2(moveSpeed, body.velocity.y);
+        body.velocity = moveVelocity;
     }
 
     public virtual void ReverseDirection()
     {
-        walkSpeed *= -1.0f;
+        moveSpeed *= -1.0f;
     }
 
     public bool IsDead()

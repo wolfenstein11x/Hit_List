@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class JumpStateAssassin : StateMachineBehaviour
 {
-    Enemy enemy;
+    Assassin assassin;
     Rigidbody2D body;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemy = animator.GetComponent<Enemy>();
-        body = enemy.body;
+        assassin = animator.GetComponent<Assassin>();
+        body = assassin.body;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (body.velocity.y <= Mathf.Epsilon)
+        if (assassin.Landed())
         {
             animator.SetTrigger("land");
         }
