@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     Animator muzzleFlashAnimator;
     CapsuleCollider2D bodyCollider;
+    BoxCollider2D feetCollider;
     float startingGravityScale;
     AudioSource gunShotSound;
     bool isShooting = false;
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         muzzleFlashAnimator = muzzleFlash.GetComponent<Animator>();
         bodyCollider = GetComponent<CapsuleCollider2D>();
+        feetCollider = GetComponent<BoxCollider2D>();
         startingGravityScale = rigidBody.gravityScale;
         gunShotSound = GetComponent<AudioSource>();
         grenadesTracker = FindObjectOfType<GrenadesTracker>();
@@ -71,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        bool onGround = bodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        bool onGround = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
         //bool onLadder = playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
 
         // can only jump from off ground 
