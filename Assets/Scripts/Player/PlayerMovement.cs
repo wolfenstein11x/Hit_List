@@ -214,6 +214,12 @@ public class PlayerMovement : MonoBehaviour
             Die();
         }
 
+        else if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
+        {
+            livesTracker.LoseAllLives();
+            Die();
+        }
+
         else if (collision.gameObject.tag == "Bullet")
         {
             TakeHit();
