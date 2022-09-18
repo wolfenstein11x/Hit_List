@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 1207161134317755988}
   - component: {fileID: 1207161134317755991}
   - component: {fileID: 1207161134317755990}
-  - component: {fileID: 7518345999743112250}
   - component: {fileID: 5795671888605295240}
+  - component: {fileID: 58596563}
   m_Layer: 0
   m_Name: EliteAssassin
   m_TagString: Untagged
@@ -275,32 +275,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideOn: 0
   overrideVal: 1
---- !u!114 &7518345999743112250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207161132792528057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c2485ebbedd1e4f8766c15eb7015d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 4
-  body: {fileID: 0}
-  fireRange: 10
-  bulletSpawnPoint: {fileID: 8332621226302302558}
-  muzzleFlash: {fileID: 4266661106123947881}
-  grenadeImmune: 1
-  bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
-  grenade: {fileID: 4419074474260612403, guid: 58f0464760674e74db351fb399166374, type: 3}
-  grenadeSpawnPoint: {fileID: 1604347424}
-  sightRange: 100
-  runSpeed: 12
-  facingLeft: 0
-  throwRange: 25
-  grenadeThrower: 1
 --- !u!61 &5795671888605295240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -327,6 +301,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.161972, y: 4.6701508}
   m_EdgeRadius: 0
+--- !u!114 &58596563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207161132792528057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694ecb3ced7d2a345ba67e76dc2b189c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  body: {fileID: 0}
+  fireRange: 10
+  bulletSpawnPoint: {fileID: 8332621226302302558}
+  muzzleFlash: {fileID: 4266661106123947881}
+  grenadeImmune: 1
+  bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
+  grenade: {fileID: 4419074474260612403, guid: 58f0464760674e74db351fb399166374, type: 3}
+  grenadeSpawnPoint: {fileID: 1604347424}
+  sightRange: 100
+  facingLeft: 0
+  throwRange: 50
+  grenadeThrower: 1
 --- !u!1 &8332621226302302557
 GameObject:
   m_ObjectHideFlags: 0

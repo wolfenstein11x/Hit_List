@@ -7,7 +7,6 @@ public class Assassin : Enemy
     [SerializeField] GameObject grenade;
     [SerializeField] Transform grenadeSpawnPoint;
     [SerializeField] float sightRange = 100;
-    [SerializeField] float runSpeed = 10f;
     [SerializeField] bool facingLeft = false;
     [SerializeField] float throwRange = 50f;
 
@@ -62,27 +61,6 @@ public class Assassin : Enemy
             return false;
         }
 
-    }
-
-    public void Run()
-    {
-        Vector2 runVelocity = new Vector2(runSpeed, body.velocity.y);
-        body.velocity = runVelocity;
-    }
-
-    public override void ReverseDirection()
-    {
-        runSpeed *= -1f;
-    }
-
-    protected override void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (isDead) { return; }
-
-        if (collision.gameObject.tag == "Bullet")
-        {
-            TakeHit();
-        }
     }
 
     public bool PlayerInThrowRange()
