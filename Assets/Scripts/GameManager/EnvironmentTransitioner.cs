@@ -18,6 +18,13 @@ public class EnvironmentTransitioner : MonoBehaviour
     
     public void GoInside()
     {
+        // Don't want to hear left over grenade exploding outside, ruin the indoor music
+        Grenade[] grenades = FindObjectsOfType<Grenade>();
+        foreach(Grenade grenade in grenades)
+        {
+            Destroy(grenade);
+        }
+
         insideEnvironment.SetActive(true);
         outsideEnvironment.SetActive(false);
 
