@@ -68,6 +68,9 @@ TagManager:
   - name: Props
     uniqueID: 118949993
     locked: 0
+  - name: PropsFront
+    uniqueID: 2575360019
+    locked: 0
   - name: Platforms
     uniqueID: 2457532531
     locked: 0
