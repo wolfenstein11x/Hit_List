@@ -167,6 +167,13 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("climbing_idle", !playerHasVerticalalSpeed);
     }
 
+    public bool Landed()
+    {
+        LayerMask landingLayers = LayerMask.GetMask("Ground");
+
+        return (rigidBody.IsTouchingLayers(landingLayers));
+    }
+
     public void Die(bool doDeathKick=true)
     {
         isAlive = false;
