@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     Animator muzzleFlashAnimator;
     CapsuleCollider2D bodyCollider;
     BoxCollider2D feetCollider;
-    float startingGravityScale;
     AudioSource gunShotSound;
+    float startingGravityScale;
     bool isShooting = false;
     bool isAlive = true;
     bool takingHit = false;
@@ -54,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
 
         Run();
         FlipSprite();
-        ClimbLadder();
+        //ClimbLadder();
+        GrabLadder();
     }
 
     void OnMove(InputValue value)
@@ -74,10 +75,13 @@ public class PlayerMovement : MonoBehaviour
         if (!isAlive) { return; }
 
         bool onGround = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
-        //bool onLadder = playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
+        bool onLadder = feetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
 
-        // can only jump from off ground 
-        if (!onGround) { return; }
+        // can only jump from off ground or ladder 
+        if (!onGround && !onLadder) { return; }
+
+        // can't jump while actively climbing, must be idle on ladder
+        if (animator.GetBool("climbing")) { return; }
 
         if (value.isPressed)
         { 
@@ -165,6 +169,49 @@ public class PlayerMovement : MonoBehaviour
         bool playerHasVerticalalSpeed = Mathf.Abs(rigidBody.velocity.y) > Mathf.Epsilon;
         animator.SetBool("climbing", playerHasVerticalalSpeed);
         animator.SetBool("climbing_idle", !playerHasVerticalalSpeed);
+    }
+
+    public void Climb()
+    {
+        Vector2 climbVelocity = new Vector2(rigidBody.velocity.x, moveInput.y * climbSpeed);
+        rigidBody.velocity = climbVelocity;
+    }
+
+    public bool AttemptingToClimb()
+    {
+        return (Mathf.Abs(moveInput.y) > Mathf.Epsilon);
+    }
+
+    public bool HasVerticalSpeed()
+    {
+        return Mathf.Abs(rigidBody.velocity.y) > Mathf.Epsilon;
+    }
+
+    public void ZeroGravity()
+    {
+        rigidBody.gravityScale = 0f;
+    }
+
+    public void ResetGravity()
+    {
+        rigidBody.gravityScale = startingGravityScale;
+    }
+
+    void GrabLadder()
+    {
+        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            if (moveInput.y > Mathf.Epsilon)
+            {
+                animator.SetBool("climbing_idle", true);
+            }
+        }
+
+        else
+        {
+            animator.SetBool("climbing_idle", false);
+            animator.SetBool("climbing", false);
+        }
     }
 
     public bool Landed()
