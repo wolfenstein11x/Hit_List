@@ -54,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
 
         Run();
         FlipSprite();
-        //ClimbLadder();
         GrabLadder();
     }
 
@@ -149,27 +148,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void ClimbLadder()
-    {
-        // only climb if player is touching a ladder
-        if (!bodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
-        {
-            rigidBody.gravityScale = startingGravityScale;
-            animator.SetBool("climbing", false);
-            animator.SetBool("climbing_idle", false);
-            return; 
-        }
-
-        // handle upward motion
-        Vector2 climbVelocity = new Vector2(rigidBody.velocity.x, moveInput.y * climbSpeed);
-        rigidBody.velocity = climbVelocity;
-        rigidBody.gravityScale = 0f;
-
-        // play climbing animation if moving up, play climbing idle animation if not moving
-        bool playerHasVerticalalSpeed = Mathf.Abs(rigidBody.velocity.y) > Mathf.Epsilon;
-        animator.SetBool("climbing", playerHasVerticalalSpeed);
-        animator.SetBool("climbing_idle", !playerHasVerticalalSpeed);
-    }
 
     public void Climb()
     {
