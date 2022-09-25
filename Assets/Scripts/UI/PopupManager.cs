@@ -5,13 +5,19 @@ using UnityEngine;
 public class PopupManager : MonoBehaviour
 {
     [SerializeField] GameObject gameOverPopup;
-    [SerializeField] GameObject levelCompletePopup;
+    [SerializeField] GameObject pauseMenuPopup;
+    [SerializeField] GameObject controlsMenuPopup;
+
+    LevelLoader levelLoader;
  
     // Start is called before the first frame update
     void Start()
     {
         GameOver(false);
-        LevelComplete(false);
+        Pause(false);
+        ShowControls(false);
+
+        levelLoader = FindObjectOfType<LevelLoader>();
     }
 
     // Update is called once per frame
@@ -25,8 +31,22 @@ public class PopupManager : MonoBehaviour
         gameOverPopup.SetActive(isOn);
     }
 
-    public void LevelComplete(bool isOn)
+    public void Pause(bool isOn)
     {
-        levelCompletePopup.SetActive(isOn);
+        pauseMenuPopup.SetActive(isOn);
+
+        if (isOn) { Time.timeScale = 0; }
+        else { Time.timeScale = 1; }
+
+    }
+
+    public void MainMenu()
+    {
+        levelLoader.LoadMainMenu();
+    }
+
+    public void ShowControls(bool isOn)
+    {
+        controlsMenuPopup.SetActive(isOn);
     }
 }

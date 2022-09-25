@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPopup: {fileID: 0}
+  pauseMenuPopup: {fileID: 0}
+  controlsMenuPopup: {fileID: 0}

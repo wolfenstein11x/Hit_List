@@ -112,6 +112,11 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("throw");
     }
 
+    void OnPause(InputValue value)
+    {
+        FindObjectOfType<PopupManager>().Pause(true);
+    }
+
     public void ThrowGrenade()
     {
         GameObject liveGrenade = Instantiate(grenade, grenadeSpawnPoint.position, grenade.transform.rotation);
