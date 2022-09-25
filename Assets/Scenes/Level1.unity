@@ -33863,6 +33863,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 74490387}
+    - target: {fileID: 6570009925560637919, guid: e85c2b9a00d578c4ebbe7a2e5b0c0a18, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 74490387}
+    - target: {fileID: 6570009925560637919, guid: e85c2b9a00d578c4ebbe7a2e5b0c0a18, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 6570009925999134401, guid: e85c2b9a00d578c4ebbe7a2e5b0c0a18, type: 3}
       propertyPath: m_Pivot.x
       value: 0
