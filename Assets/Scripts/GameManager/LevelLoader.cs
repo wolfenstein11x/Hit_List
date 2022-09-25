@@ -38,5 +38,9 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelIdx);
     }
 
+    public void PlayIntro()
+    {
+        SceneManager.LoadScene("Intro");
+    }
     
 }
