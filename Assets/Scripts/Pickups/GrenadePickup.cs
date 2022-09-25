@@ -25,7 +25,7 @@ public class GrenadePickup : MonoBehaviour
             GetComponent<AudioSource>().Play();
 
             // make grenade disappear
-            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             GetComponentInChildren<SpriteRenderer>().enabled = false;
 
             // destroy grenade image after delay, so sound effect isn't cut off
