@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndSlideshow : MonoBehaviour
 {
     [SerializeField] GameObject loadingScreen;
+    [SerializeField] int nextSlideIndex = 1;
 
     LevelLoader levelLoader;
 
@@ -14,7 +15,7 @@ public class EndSlideshow : MonoBehaviour
         levelLoader = FindObjectOfType<LevelLoader>();
 
         loadingScreen.gameObject.SetActive(true);
-        levelLoader.LoadLevel(1);
+        levelLoader.LoadLevel(nextSlideIndex);
 
     }
 
