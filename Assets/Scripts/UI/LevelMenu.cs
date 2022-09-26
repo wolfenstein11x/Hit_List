@@ -37,4 +37,9 @@ public class LevelMenu : MonoBehaviour
         LoadUnlockedLevels();
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
 }
