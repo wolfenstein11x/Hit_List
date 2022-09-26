@@ -10,9 +10,16 @@ public class LevelMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i=0; i < levels.Length; i++)
+        LoadUnlockedLevels();
+    }
+
+    public void LoadUnlockedLevels()
+    {
+        int highestUnlockedLevel = PlayerPrefs.GetInt("highestUnlockedLevel", 1);
+
+        for (int i = 0; i < levels.Length; i++)
         {
-            if (i < savedData.highestUnlockedLevel)
+            if (i < highestUnlockedLevel)
             {
                 levels[i].Unlock();
             }
@@ -22,6 +29,12 @@ public class LevelMenu : MonoBehaviour
                 levels[i].Lock();
             }
         }
+    }
+
+    public void Reset()
+    {
+        PlayerPrefs.SetInt("highestUnlockedLevel", 1);
+        LoadUnlockedLevels();
     }
 
 }

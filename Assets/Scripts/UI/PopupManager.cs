@@ -7,7 +7,8 @@ public class PopupManager : MonoBehaviour
     [SerializeField] GameObject gameOverPopup;
     [SerializeField] GameObject pauseMenuPopup;
     [SerializeField] GameObject controlsMenuPopup;
-
+    [SerializeField] GameObject warningPopup;
+ 
     LevelLoader levelLoader;
  
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class PopupManager : MonoBehaviour
         GameOver(false);
         Pause(false);
         ShowControls(false);
+        ShowWarning(false);
 
         levelLoader = FindObjectOfType<LevelLoader>();
     }
@@ -48,5 +50,12 @@ public class PopupManager : MonoBehaviour
     public void ShowControls(bool isOn)
     {
         controlsMenuPopup.SetActive(isOn);
+    }
+
+    public void ShowWarning(bool isOn)
+    {
+        if (warningPopup == null) { return; }
+
+        warningPopup.SetActive(isOn);
     }
 }
