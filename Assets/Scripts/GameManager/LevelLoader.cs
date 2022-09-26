@@ -43,6 +43,11 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene("Intro");
     }
 
+    public void PlayOutro()
+    {
+        SceneManager.LoadScene("Outro");
+    }
+
     
 
 }
