@@ -110,7 +110,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -373793813
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6893a239175a28949aed96ab934b84f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -181,11 +181,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e9e6c9f52db545adfe6c82cf14acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 4
+  moveSpeed: 4
   body: {fileID: 0}
   fireRange: 31
   bulletSpawnPoint: {fileID: 546159114}
   muzzleFlash: {fileID: 5649550397614955068}
+  grenadeImmune: 0
   bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
 --- !u!50 &1587019171
 Rigidbody2D:
@@ -339,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3167872272194527582, guid: 06a5f65e097956f4fa9d30e770345c5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.71
+      value: -3.47
       objectReference: {fileID: 0}
     - target: {fileID: 3167872272194527582, guid: 06a5f65e097956f4fa9d30e770345c5d, type: 3}
       propertyPath: m_LocalPosition.y

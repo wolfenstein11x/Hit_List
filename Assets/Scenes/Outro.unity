@@ -183,7 +183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b23bae002ac1d49498c7c3cf73990663, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4fcfa2798df6f4e4fa5fe88d286bd194, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fd9cac0b397b8114d88e841f207c0f35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2aab674d1d950df4f9bdb922fadeb33c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -372,8 +372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lettersPerSecond: 25
   bulletPointTextBox: {fileID: 835979618}
-  bulletPoint: ALL AROUND THE WORLD PEOPLE FEEL AT PEACE, FINALLY GETTING THE JUSTICE
-    THEY THOUGHT THEY WOULD NEVER RECEIVE
+  bulletPoint: THEY ARE JOINED BY PEOPLE ALL AROUND THE WORLD, FINALLY GETTING THE
+    JUSTICE THEY THOUGHT THEY WOULD NEVER RECEIVE...
 --- !u!114 &835979618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,8 +394,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ALL AROUND THE WORLD PEOPLE FEEL AT PEACE, FINALLY GETTING THE JUSTICE
-    THEY THOUGHT THEY WOULD NEVER RECEIVE
+  m_text: THEY ARE JOINED BY PEOPLE ALL AROUND THE WORLD, FINALLY GETTING THE JUSTICE
+    THEY THOUGHT THEY WOULD NEVER RECEIVE...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bbaea5a79214024b881113249416f16, type: 2}
   m_sharedMaterial: {fileID: 7317687117957657984, guid: 4bbaea5a79214024b881113249416f16, type: 2}
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b23bae002ac1d49498c7c3cf73990663, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0cea8b170f737940aa04356564f5a13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1151,8 +1151,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 964.7047, y: 78.400116}
-  m_SizeDelta: {x: 1854.8352, y: 123.1279}
+  m_AnchoredPosition: {x: 978.64, y: 78.400116}
+  m_SizeDelta: {x: 1882.7, y: 123.1279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2002140702
 MonoBehaviour:
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lettersPerSecond: 25
   bulletPointTextBox: {fileID: 2002140703}
-  bulletPoint: UPON HEARING NEWS OF THE TYRANTS ARRESTS, THE PEOPLE CELEBRATE
+  bulletPoint: UPON HEARING NEWS OF THE TYRANTS ARRESTS, THE PEOPLE CELEBRATE...
 --- !u!114 &2002140703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: UPON HEARING NEWS OF THE TYRANTS ARRESTS, THE PEOPLE CELEBRATE
+  m_text: UPON HEARING NEWS OF THE TYRANTS ARRESTS, THE PEOPLE CELEBRATE...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bbaea5a79214024b881113249416f16, type: 2}
   m_sharedMaterial: {fileID: 7317687117957657984, guid: 4bbaea5a79214024b881113249416f16, type: 2}
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lettersPerSecond: 25
   bulletPointTextBox: {fileID: 2023964181}
-  bulletPoint: NOW THE VICTIMS OF THE OLD EMPIRE'S TYRANNY MAY REST IN PEACE
+  bulletPoint: NOW THE VICTIMS OF THE OLD EMPIRE'S TYRANNY MAY REST IN PEACE...
 --- !u!114 &2023964181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NOW THE VICTIMS OF THE OLD EMPIRE'S TYRANNY MAY REST IN PEACE
+  m_text: NOW THE VICTIMS OF THE OLD EMPIRE'S TYRANNY MAY REST IN PEACE...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bbaea5a79214024b881113249416f16, type: 2}
   m_sharedMaterial: {fileID: 7317687117957657984, guid: 4bbaea5a79214024b881113249416f16, type: 2}
