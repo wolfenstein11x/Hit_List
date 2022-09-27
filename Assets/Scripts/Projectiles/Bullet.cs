@@ -33,8 +33,8 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "WallBuffer") { return; }
 
         // TODO get symmetrical, small simple explosion for bullet
-        //GameObject bulletExplosion = Instantiate(explosion, transform.position, transform.rotation);
-        //Destroy(bulletExplosion, 0.2f);
+        GameObject bulletExplosion = Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(bulletExplosion, 0.2f);
         Destroy(gameObject);
     }
 
