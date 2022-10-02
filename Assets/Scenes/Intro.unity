@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157fd78ffe305841837ef765f475bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersPerSecond: 25
+  lettersPerSecond: 35
   bulletPointTextBox: {fileID: 411836457}
   bulletPoint: IT IS UP TO YOU TO BRING THEM TO JUSTICE...
 --- !u!1001 &448716112
@@ -511,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &514855606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157fd78ffe305841837ef765f475bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersPerSecond: 25
+  lettersPerSecond: 35
   bulletPointTextBox: {fileID: 882107020}
   bulletPoint: THE AMERICAN EMPIRE HAS FALLEN,                 AS ALL EMPIRES DO...
 --- !u!1 &998348470
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157fd78ffe305841837ef765f475bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersPerSecond: 25
+  lettersPerSecond: 35
   bulletPointTextBox: {fileID: 998348473}
   bulletPoint: THEY EXPECT TO LIVE OUT THE REST OF THEIR LIVES AS FREE MEN...
 --- !u!114 &998348473
@@ -1280,7 +1280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 17.923012, y: 52.832}
+  m_AnchoredPosition: {x: 17.923012, y: 88}
   m_SizeDelta: {x: 1734.271, y: 77.663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1330073202
@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157fd78ffe305841837ef765f475bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersPerSecond: 25
+  lettersPerSecond: 35
   bulletPointTextBox: {fileID: 1330073202}
   bulletPoint: FEARING RETRIBUTION, THE RULING CLASS HAS FLED THE COUNTRY...
 --- !u!1 &1469718239
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157fd78ffe305841837ef765f475bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersPerSecond: 25
+  lettersPerSecond: 35
   bulletPointTextBox: {fileID: 2140148685}
   bulletPoint: THEY NOW LIVE FAR AWAY, IN HEAVILY GUARDED COMPOUNDS...
 --- !u!114 &2140148685
@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157fd78ffe305841837ef765f475bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersPerSecond: 25
+  lettersPerSecond: 35
   bulletPointTextBox: {fileID: 2140950530}
   bulletPoint: THEY MUST PAY FOR THEIR CRIMES AGAINST HUMANITY...
 --- !u!114 &2140950530
