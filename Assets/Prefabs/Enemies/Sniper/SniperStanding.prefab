@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 2035572115838826094}
   - component: {fileID: 2035572115838826095}
   - component: {fileID: 2035572115838826085}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SniperStanding
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -373793813
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6893a239175a28949aed96ab934b84f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -181,11 +181,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e9e6c9f52db545adfe6c82cf14acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 4
+  moveSpeed: 4
   body: {fileID: 0}
   fireRange: 50
   bulletSpawnPoint: {fileID: 2035572114263192007}
   muzzleFlash: {fileID: 5933758775010071025}
+  grenadeImmune: 0
   bullet: {fileID: 7313435621885342541, guid: 7f3c6632113000141a211b170f8bc307, type: 3}
 --- !u!50 &2035572115838826094
 Rigidbody2D:

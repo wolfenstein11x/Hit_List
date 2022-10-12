@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     GrenadesTracker grenadesTracker;
     LivesTracker livesTracker;
     float epsilon = 0.01f;
+    LayerMask jumpingLayers;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         gunShotSound = GetComponent<AudioSource>();
         grenadesTracker = FindObjectOfType<GrenadesTracker>();
         livesTracker = FindObjectOfType<LivesTracker>();
+        jumpingLayers = LayerMask.GetMask("Ground") | LayerMask.GetMask("Climbing") | LayerMask.GetMask("Enemy");
     }
 
     // Update is called once per frame
@@ -73,11 +75,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        bool onGround = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
-        bool onLadder = feetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"));
+        bool onJumpableSurface = (feetCollider.IsTouchingLayers(jumpingLayers));
 
-        // can only jump from off ground or ladder 
-        if (!onGround && !onLadder) { return; }
+        // can only jump from off ground or ladder or on enemy
+        if (!onJumpableSurface) { return; }
 
         // can't jump while actively climbing, must be idle on ladder
         if (animator.GetBool("climbing")) { return; }
@@ -199,9 +200,9 @@ public class PlayerMovement : MonoBehaviour
 
     public bool Landed()
     {
-        LayerMask landingLayers = LayerMask.GetMask("Ground");
+        //LayerMask landingLayers = LayerMask.GetMask("Ground");
 
-        return (rigidBody.IsTouchingLayers(landingLayers));
+        return (rigidBody.IsTouchingLayers(jumpingLayers));
     }
 
     public void Die(bool doDeathKick=true)
