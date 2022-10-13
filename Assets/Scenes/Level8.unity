@@ -6699,7 +6699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &664061137
 Transform:
   m_ObjectHideFlags: 0
@@ -61121,12 +61121,12 @@ PolygonCollider2D:
       - {x: 7.6065145, y: 1.5546201}
       - {x: 7.141321, y: -1.3923725}
       - {x: 1.0359802, y: -1.436782}
-      - {x: 0.39243746, y: -0.8290932}
-      - {x: 0.3954435, y: -1.3905677}
+      - {x: 0.39243746, y: -0.22289044}
+      - {x: 0.3844714, y: -1.3540181}
       - {x: -0.6775873, y: -1.3725208}
       - {x: -2.581256, y: -1.3643591}
       - {x: -5.0314384, y: -1.3762028}
-      - {x: -7.1002483, y: -1.4070491}
+      - {x: -7.1002483, y: -1.3506554}
       - {x: -7.077871, y: 1.5753616}
       - {x: -7.765908, y: -1.3648642}
       - {x: -7.7773905, y: -2.15693}
@@ -63370,6 +63370,14 @@ PrefabInstance:
       propertyPath: grenades.Array.data[2]
       value: 
       objectReference: {fileID: 390181926948770417}
+    - target: {fileID: 5580640862150606878, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
+      propertyPath: grenades.Array.data[3]
+      value: 
+      objectReference: {fileID: 7055732531551685302}
+    - target: {fileID: 5580640862150606878, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
+      propertyPath: grenades.Array.data[4]
+      value: 
+      objectReference: {fileID: 7055732531551685301}
     - target: {fileID: 5580640862150606879, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
       propertyPath: m_Name
       value: GrenadesTracker
@@ -63836,6 +63844,16 @@ PrefabInstance:
 --- !u!224 &7055732531551685300 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4410922759473171789, guid: 1f36ad05deb35404dae5d0e77894e992, type: 3}
+  m_PrefabInstance: {fileID: 7055732531551685299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7055732531551685301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 869750414, guid: 1f36ad05deb35404dae5d0e77894e992, type: 3}
+  m_PrefabInstance: {fileID: 7055732531551685299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7055732531551685302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2033278153, guid: 1f36ad05deb35404dae5d0e77894e992, type: 3}
   m_PrefabInstance: {fileID: 7055732531551685299}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7282603368002548418

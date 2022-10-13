@@ -5390,7 +5390,7 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 743250334}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &765358805
 PrefabInstance:
@@ -6067,6 +6067,11 @@ Transform:
   m_Father: {fileID: 664061137}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &873619610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 869750414, guid: 1f36ad05deb35404dae5d0e77894e992, type: 3}
+  m_PrefabInstance: {fileID: 7055732531551685299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &899086170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 116966148890810590, guid: 279cb29b650df584da72e95a4df48dda, type: 3}
@@ -7197,7 +7202,7 @@ Transform:
   - {fileID: 6570009924887353690}
   - {fileID: 7055732531551685300}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163449858
 GameObject:
@@ -40317,6 +40322,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3649975129748562966, guid: b3c4a497bc2935e4592c6dceb86ca4aa, type: 3}
   m_PrefabInstance: {fileID: 544831608}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1476185425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2033278153, guid: 1f36ad05deb35404dae5d0e77894e992, type: 3}
+  m_PrefabInstance: {fileID: 7055732531551685299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1485472652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40567,7 +40577,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1511091753 stripped
 Transform:
@@ -41484,9 +41494,9 @@ PolygonCollider2D:
       - {x: 5.110006, y: 1.4576684}
       - {x: 5.153813, y: -1.4408484}
       - {x: 1.0359802, y: -1.436782}
-      - {x: 0.39426076, y: -0.86821526}
-      - {x: 0.3954435, y: -1.4450284}
-      - {x: -5.065464, y: -1.4303038}
+      - {x: 0.39426076, y: -0.44926086}
+      - {x: 0.37921727, y: -1.4044429}
+      - {x: -5.065464, y: -1.3897184}
       - {x: -5.019826, y: 1.4125785}
       - {x: -5.789253, y: -1.4695106}
       - {x: -5.6822114, y: -2.0750873}
@@ -43756,7 +43766,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1300215770822314327, guid: a9b16dbd51b540f46ac2226e42f7a126, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300215770822314327, guid: a9b16dbd51b540f46ac2226e42f7a126, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44160,6 +44170,14 @@ PrefabInstance:
       propertyPath: grenades.Array.data[2]
       value: 
       objectReference: {fileID: 390181926948770417}
+    - target: {fileID: 5580640862150606878, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
+      propertyPath: grenades.Array.data[3]
+      value: 
+      objectReference: {fileID: 1476185425}
+    - target: {fileID: 5580640862150606878, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
+      propertyPath: grenades.Array.data[4]
+      value: 
+      objectReference: {fileID: 873619610}
     - target: {fileID: 5580640862150606879, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
       propertyPath: m_Name
       value: GrenadesTracker

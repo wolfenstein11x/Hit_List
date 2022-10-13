@@ -61857,9 +61857,9 @@ PolygonCollider2D:
       - {x: 7.1093597, y: 2.033753}
       - {x: 7.0684433, y: -1.3730737}
       - {x: 1.0359802, y: -1.3865871}
-      - {x: 0.40048587, y: -0.67647505}
-      - {x: 0.3954435, y: -1.3717}
-      - {x: -6.7662935, y: -1.3751345}
+      - {x: 0.39275035, y: -0.073557556}
+      - {x: 0.3954435, y: -1.358859}
+      - {x: -6.7662935, y: -1.3569733}
       - {x: -7.0981536, y: 1.9835453}
       - {x: -7.0453835, y: -1.4923489}
       - {x: -7.0525293, y: -2.0294101}
@@ -64386,6 +64386,14 @@ PrefabInstance:
       propertyPath: grenades.Array.data[2]
       value: 
       objectReference: {fileID: 390181926948770417}
+    - target: {fileID: 5580640862150606878, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
+      propertyPath: grenades.Array.data[3]
+      value: 
+      objectReference: {fileID: 7055732531551685302}
+    - target: {fileID: 5580640862150606878, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
+      propertyPath: grenades.Array.data[4]
+      value: 
+      objectReference: {fileID: 7055732531551685301}
     - target: {fileID: 5580640862150606879, guid: bef04496d9e0a854b9f06bb842f72f2a, type: 3}
       propertyPath: m_Name
       value: GrenadesTracker
@@ -64771,6 +64779,16 @@ PrefabInstance:
 --- !u!224 &7055732531551685300 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4410922759473171789, guid: 1f36ad05deb35404dae5d0e77894e992, type: 3}
+  m_PrefabInstance: {fileID: 7055732531551685299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7055732531551685301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 869750414, guid: 1f36ad05deb35404dae5d0e77894e992, type: 3}
+  m_PrefabInstance: {fileID: 7055732531551685299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7055732531551685302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2033278153, guid: 1f36ad05deb35404dae5d0e77894e992, type: 3}
   m_PrefabInstance: {fileID: 7055732531551685299}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7116477378288919002

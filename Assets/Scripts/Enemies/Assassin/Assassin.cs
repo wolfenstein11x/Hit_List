@@ -26,7 +26,7 @@ public class Assassin : Enemy
         raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
         bodyCollider = GetComponent<Collider2D>();
         target = FindObjectOfType<PlayerMovement>();
-        jumpingLayers = LayerMask.GetMask("Ground") | LayerMask.GetMask("Climbing") | LayerMask.GetMask("Enemy");
+        jumpingLayers = LayerMask.GetMask("Ground") | LayerMask.GetMask("Enemy");
 
 
         if (facingLeft)
