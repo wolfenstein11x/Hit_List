@@ -13,6 +13,7 @@ public class Assassin : Enemy
     public bool grenadeThrower = false;
 
     PlayerMovement target;
+    LayerMask jumpingLayers;
 
     void Start()
     {
@@ -25,6 +26,8 @@ public class Assassin : Enemy
         raycastLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Ground");
         bodyCollider = GetComponent<Collider2D>();
         target = FindObjectOfType<PlayerMovement>();
+        jumpingLayers = LayerMask.GetMask("Ground") | LayerMask.GetMask("Climbing") | LayerMask.GetMask("Enemy");
+
 
         if (facingLeft)
         {
@@ -70,8 +73,8 @@ public class Assassin : Enemy
 
     public bool Landed()
     {
-        LayerMask landingLayers = LayerMask.GetMask("Ground");
+        //LayerMask landingLayers = LayerMask.GetMask("Ground");
 
-        return (body.IsTouchingLayers(landingLayers));
+        return (body.IsTouchingLayers(jumpingLayers));
     }
 }

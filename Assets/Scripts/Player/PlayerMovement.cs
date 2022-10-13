@@ -200,8 +200,6 @@ public class PlayerMovement : MonoBehaviour
 
     public bool Landed()
     {
-        //LayerMask landingLayers = LayerMask.GetMask("Ground");
-
         return (rigidBody.IsTouchingLayers(jumpingLayers));
     }
 
